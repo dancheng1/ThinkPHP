@@ -1,0 +1,264 @@
+<%@ page language="java" pageEncoding="utf-8" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <%--<link href="<%=basePath%>lib/ligerUI/skins/Aqua/css/ligerui-all.css" rel="stylesheet" type="text/css"/>--%>
+
+    <script src="<%=basePath%>static/lib/jquery/jquery-1.9.0.min.js" type="text/javascript"></script>
+    <script src="<%=basePath%>static/lib/ligerUI/js/core/base.js" type="text/javascript"></script>
+    <script src="<%=basePath%>static/lib/ligerUI/js/plugins/ligerGrid.js" type="text/javascript"></script>
+    <script src="<%=basePath%>static/lib/ligerUI/js/plugins/ligerResizable.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var i = 0;
+        var j = i;
+        var n = 1;//编号自动增加
+        var y = 1;//编号自动增加
+        function addCol() {
+            var colCount = document.getElementById("paramTab").rows.length;//根据行数，增加列
+            var cols = document.getElementById("paramTab").rows.item(0).cells.length;
+            var m = 0;
+            $("#paramTab tr").each(function () {
+                var trHtml = "";
+                var ttVal = $("#paramTab tr").eq(m).attr("id");
+                if ("tt" == ttVal) {
+                    var trHtml = "<td></td>";
+                } else if ("price" == ttVal) {
+                    trHtml = "<td><input name='prices' id='prices" + i + "' type='text' value=''></td>";
+                } else if ("demand" == ttVal) {
+                    trHtml = "<td><input name='demands' id='demands" + i + "' type='text' value='' onchange='changeDVal()'></td>";
+                } else if ("product_Index" == ttVal) {
+                    trHtml = "<td><input name='productIndexs' id='productIndexs" + i + "' type='text' value='' readonly='readonly'></td>";
+                } else if ("product_Name" == ttVal) {
+                    trHtml = "<td><input name='productNames' id='productNames" + i + "' type='text' value='' onchange='changePVal(this.id,this.id.substring(12,this.id.length))'></td>";
+                } else {
+                    trHtml = "<td id='td" + j + "'><input id='casts" + i + "' name='casts' type='text' value='' size='3'></td>";
+                }
+                $(this).append(trHtml);
+                m++;
+            });
+            i++;
+        }
+        function addRow() {
+            var _len = document.getElementById("paramTab").rows.item(0).cells.length;//根据列数，添加行
+
+            var tr1 = "<tr id='tr" + j + "' style='text-align: center;'>";
+            var td = "";
+            var tr2 = "</tr>";
+            for (var tdi = 0; tdi < _len; tdi++) {
+                if (tdi == 0) {
+                    td += "<td id='td" + tdi + "'><input name='workerIndexs' id='workerIndexs" + j + "' type='text' value='' size='3' readonly='readonly'></td>";
+                } else if (tdi == 1) {
+                    td += "<td id='td" + tdi + "'><input name='workerNames' id='workerNames" + j + "' type='text' value='' onchange='changeVal(this.id,this.id.substring(11,this.id.length))' size='8'></td>";
+                } else {
+                    td += "<td id='td" + tdi + "'><input id='casts" + j + "' name='casts' type='text' value='' size='3'></td>";
+                }
+            }
+            $("#paramTab").append(tr1 + td + tr2);
+            j++
+        }
+
+        $(document.body).css({
+            "overflow-x": "auto",
+            "overflow-y": "auto"
+        });
+        function changeVal(id, count) {
+            var wn = $("#" + id + "").val();
+            if (wn != "") {
+                $("#workerIndexs" + count).val(Number(count) + 1);
+                $("#memberCount").val($("#workerIndexs" + count).val())
+            } else {
+                $("#workerIndexs" + count).val("");
+                $("#memberCount").val($("#workerIndexs" + (Number(count) - 1)).val())
+            }
+        }
+        function changePVal(id, count) {
+            var wn = $("#" + id + "").val();
+            if (wn != "") {
+                $("#productIndexs" + count).val(Number(count) + 1);
+            } else {
+                $("#productIndexs" + count).val("");
+            }
+        }
+        function changeDVal() {
+            var demand = document.getElementsByName("demands");
+            var sum = 0;
+            for (var i = 0; i < demand.length; i++) {
+                sum += Number(demand[i].value);
+            }
+            $("#productCount").val(sum);
+        }
+        function initValue() {
+            $("#memberCount").val("");
+            $("#productCount").val("");
+        }
+        function toNull(id) {
+            if ($("#" + id).val() == '请输入预算金额') {
+                $("#" + id).val("");
+            }
+        }
+        function toDefault(id) {
+            if ($("#" + id).val() == '') {
+                $("#" + id).val('请输入预算金额');
+            }
+        }
+        function ffocus(id) {
+            if ($("#" + id).val() == '可自行输入英文名') {
+                $("#" + id).val("");
+            }
+        }
+        function fblur(id) {
+            if ($("#" + id).val() == '') {
+                $("#" + id).val('可自行输入英文名');
+            }
+        }
+        function toJsonString() {
+            var fileName = $("#fileName").val();
+            var caseType = $("#caseType").val();
+            var memberCount = $("#memberCount").val();
+            var productCount = $("#productCount").val();
+            var budget = $("#budget").val();
+            var inputdata = "";
+            var rowCount = document.getElementById("paramTab").rows.length;//根据行数，增加列
+            var colCount = document.getElementById("paramTab").rows.item(0).cells.length;
+//            alert("总共[" + rowCount + "] 行");
+//            alert("总共[" + colCount + "] 列");
+            var strJson = "";
+            var jsonObj = "";
+            var data = {};
+            for (var col = 2; col < colCount; col++) {
+//                alert("第[" + col + "] 列");
+                var str = "";
+                var key_price = $("#paramTab tr:eq(" + 0 + ") td:eq(" + col + ")").find("input").attr("name");
+                var key_demand = $("#paramTab tr:eq(" + 1 + ") td:eq(" + col + ")").find("input").attr("name");
+                var key_product_Index = $("#paramTab tr:eq(" + 2 + ") td:eq(" + col + ")").find("input").attr("name");
+                var key_product_Name = $("#paramTab tr:eq(" + 3 + ") td:eq(" + col + ")").find("input").attr("name");
+                var value_price = $("#paramTab tr:eq(" + 0 + ") td:eq(" + col + ")").find("input").val();
+                var value_demand = $("#paramTab tr:eq(" + 1 + ") td:eq(" + col + ")").find("input").val();
+                var value_product_Index = $("#paramTab tr:eq(" + 2 + ") td:eq(" + col + ")").find("input").val();
+                var value_product_Name = $("#paramTab tr:eq(" + 3 + ") td:eq(" + col + ")").find("input").val();
+//                str = "'" + key_price + "':'" + value_price + "','" + key_demand + "':'" + value_demand + "','" + key_product_Index + "':'" + value_product_Index + "','" + key_product_Name + "':'" + value_product_Name + "'";
+                str = "\"" + key_price + "\":\"" + value_price + "\","+"\"" + key_demand + "\":\"" + value_demand + "\","+"\"" + key_product_Index + "\":\"" + value_product_Index + "\","+ key_product_Name + "\":\"" + value_product_Name + "\"";
+                for (var row = 5; row < rowCount; row++) {
+                    var str1 = "";
+                    var key_workIndex = $("#paramTab tr:eq(" + row + ") td:eq(" + 0 + ")").find("input").attr("name");
+                    var value_workIndex = $("#paramTab tr:eq(" + row + ") td:eq(" + 0 + ")").find("input").val();
+                    var key_workerName = $("#paramTab tr:eq(" + row + ") td:eq(" + 1 + ")").find("input").attr("name");
+                    var value_workerName = $("#paramTab tr:eq(" + row + ") td:eq(" + 1 + ")").find("input").val();
+                    var key_cast = $("#paramTab tr:eq(" + row + ") td:eq(" + col + ")").find("input").attr("name");
+                    var value_cast = $("#paramTab tr:eq(" + row + ") td:eq(" + col + ")").find("input").val();
+//                    str1 = "'" + key_workIndex + "':'" + value_workIndex + "','" + key_workerName + "':'" + value_workerName + "','" + key_cast + "':'" + value_cast + "'";
+                    str1 = "\"" + key_workIndex + "\":\"" + value_workIndex + "\","+"\"" + key_workerName + "\":\"" + value_workerName + "\","+"\"" + key_cast + "\":\"" + value_cast + "\"";
+                    jsonObj = "{" + str + "," + str1 + "}";
+                    strJson += jsonObj + ",";
+                    console.log(jsonObj);
+                }
+            }
+//            alert(eval('('+strJson+')'));
+            inputdata = "[" + strJson.substring(0, strJson.length - 1) + "]";
+            console.log("strJson:[" + strJson + "]");
+            document.getElementById("j").innerHTML = "strJson:[" + strJson.substring(0, strJson.length - 1) + "]";
+            data.fileName = $("#fileName").val();
+            data.caseType = $("#caseType").val();
+            data.memberCount = $("#memberCount").val();
+            data.productCount = $("#productCount").val();
+            data.budget = $("#budget").val();
+            data.inputdata = inputdata;
+            console.log(data);
+            alert(data);
+        }
+    </script>
+</head>
+<body onload="initValue()">
+<div id="base">
+    <%--<form action="${ctx}/case/save" method="post">--%>
+        <div id="tabBase">
+            <table border="1" style="font-size: 12px" id="baseTab">
+                <tr>
+                    <td colspan="1">文件名：</td>
+                    <td colspan="6">
+                        <input id="fileName" name="fileName" value="可自行输入英文名" onfocus="ffocus(this.id)"
+                               onblur="fblur(this.id)">
+                        <input id="btn" type="submit" value="求解最佳方案" onclick="toJsonString()"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1">工程类型：</td>
+                    <%--<td colspan="6">max_Production</td>--%>
+                    <td colspan="6">
+                        <select id="caseType" name="caseType">
+                            <option id="max_Production" value="max_Production">最大生产量</option>
+                            <option id="max_Revenue" value="max_Revenue">最佳方案二</option>
+                            <option id="min_Delivery_Time" value="min_Delivery_Time">最快交货时间</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" align="right">人员数量：</td>
+                    <td colspan="6">
+                        <input id="memberCount" name="memberCount" value="" readonly='readonly'>自动生成
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" align="right">产品数量：</td>
+                    <td colspan="6">
+                        <input id="productCount" name="productCount" value="" readonly='readonly'>自动生成
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" align="right">预算：</td>
+                    <td colspan="6">
+                        <input id="budget" name="budget" value="请输入预算金额" onfocus="toNull(this.id)"
+                               onblur="toDefault(this.id)">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <span style="height: 5px">--------------------------------------------------------------------------</span>
+        <div id="tabParam">
+            <table border="1" style="font-size: 12px;border-color: #01AAEE" id="paramTab">
+                <tr id="price">
+                    <td align="right">单价：</td>
+                    <td></td>
+                    <%--<td><input id="price1" name="price" type="text"></td>--%>
+                </tr>
+                <tr id="demand">
+                    <td align="right">需求量：</td>
+                    <td></td>
+                    <%--<td><input id="demand1" name="demand"></td>--%>
+                </tr>
+                <tr id="product_Index">
+                    <td align="right">产品编号：</td>
+                    <td>自动生成</td>
+                    <%--<td><input id="product_Index1" name="product_Index"></td>--%>
+                </tr>
+                <tr id="product_Name">
+                    <td align="right">产品名称：</td>
+                    <td></td>
+                    <%--<td><input type="text" id="product_Name1" name="product_Name" value="方向盘"></td>--%>
+                </tr>
+                <tr id="tt">
+                    <td id="nums">人员编号：</td>
+                    <td id="names">人员姓名：</td>
+                </tr>
+                <%--<tr>
+                    <td><input id="work_Index1" name="work_Index" value="1" size="3"></td>
+                    <td><input id="workerName1" name="workerName" value="张三" size="8"></td>
+                    <td><input id="cast1" name="cast" value=""></td>
+                </tr>--%>
+            </table>
+        </div>
+    <%--</form>--%>
+    <div id="j"></div>
+    <div id="com">
+        <input type="button" onclick="addRow()" value="增加行">
+        <input type="button" onclick="addCol()" value="增加列">
+    </div>
+    <div></div>
+</div>
+</div>
+</body>
+</html>

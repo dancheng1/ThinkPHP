@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ky.workover.job.mapper.DepartmentMapper" >
+  <resultMap id="BaseResultMap" type="com.ky.workover.job.model.Department" >
+    <id column="dept_id" property="dept_id" jdbcType="INTEGER" />
+    <result column="dept_name" property="dept_name" jdbcType="VARCHAR" />
+    <result column="established" property="established" jdbcType="VARCHAR" />
+    <result column="create_date" property="create_date" jdbcType="VARCHAR" />
+    <result column="create_by" property="create_by" jdbcType="VARCHAR" />
+    <result column="update_date" property="update_date" jdbcType="VARCHAR" />
+    <result column="update_by" property="update_by" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    dept_id, dept_name, established, create_date, create_by, update_date, update_by
+  </sql>
+  <select id="findfindDepartmentList" resultMap="BaseResultMap">
+    SELECT * FROM department
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from department
+    where dept_id = #{dept_id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from department
+    where dept_id = #{dept_id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ky.workover.job.model.Department" >
+    insert into department (dept_id, dept_name, established, 
+      create_date, create_by, update_date, 
+      update_by)
+    values (#{dept_id,jdbcType=INTEGER}, #{dept_name,jdbcType=VARCHAR}, #{established,jdbcType=VARCHAR},
+      #{create_date,jdbcType=VARCHAR}, #{create_by,jdbcType=VARCHAR}, #{update_date,jdbcType=VARCHAR},
+      #{update_by,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ky.workover.job.model.Department" >
+    insert into department
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="deptId != null" >
+        dept_id,
+      </if>
+      <if test="deptName != null" >
+        dept_name,
+      </if>
+      <if test="established != null" >
+        established,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="deptId != null" >
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="deptName != null" >
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="established != null" >
+        #{established,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ky.workover.job.model.Department" >
+    update department
+    <set >
+      <if test="deptName != null" >
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="established != null" >
+        established = #{established,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ky.workover.job.model.Department" >
+    update department
+    set dept_name = #{dept_name,jdbcType=VARCHAR},
+      established = #{established,jdbcType=VARCHAR},
+      create_date = #{create_date,jdbcType=VARCHAR},
+      create_by = #{create_by,jdbcType=VARCHAR},
+      update_date = #{update_date,jdbcType=VARCHAR},
+      update_by = #{update_by,jdbcType=VARCHAR}
+    where dept_id = #{dept_id,jdbcType=INTEGER}
+  </update>
+</mapper>

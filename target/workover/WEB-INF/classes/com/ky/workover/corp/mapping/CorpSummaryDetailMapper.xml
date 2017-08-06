@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ky.workover.corp.mapper.CorpSummaryDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.ky.workover.corp.model.CorpSummaryDetail" >
+    <id column="AssetsNo" property="assetsno" jdbcType="VARCHAR" />
+    <result column="ASSETSTYPE" property="assetstype" jdbcType="VARCHAR" />
+    <result column="ASSETSNAME" property="assetsname" jdbcType="VARCHAR" />
+    <result column="BUYPERSON" property="buyperson" jdbcType="VARCHAR" />
+    <result column="BUYPRICE" property="buyprice" jdbcType="VARCHAR" />
+    <result column="DANWEI" property="danwei" jdbcType="VARCHAR" />
+    <result column="BUYNO" property="buyno" jdbcType="VARCHAR" />
+    <result column="USERPERSON" property="userperson" jdbcType="VARCHAR" />
+    <result column="RECIVETIME" property="recivetime" jdbcType="VARCHAR" />
+    <result column="HEAD" property="head" jdbcType="VARCHAR" />
+    <result column="SAVETIME" property="savetime" jdbcType="VARCHAR" />
+    <result column="SAVEPOINT" property="savepoint" jdbcType="VARCHAR" />
+    <result column="SAVESTATE" property="savestate" jdbcType="VARCHAR" />
+    <result column="AUDITPERSON" property="auditperson" jdbcType="VARCHAR" />
+    <result column="USETIME" property="usetime" jdbcType="VARCHAR" />
+    <result column="USEPLACE" property="useplace" jdbcType="VARCHAR" />
+    <result column="RETURNTIME" property="returntime" jdbcType="VARCHAR" />
+    <result column="USESTATE" property="usestate" jdbcType="VARCHAR" />
+    <result column="CREATDATE" property="creatdate" jdbcType="VARCHAR" />
+    <result column="CREATBY" property="creatby" jdbcType="VARCHAR" />
+    <result column="UPDATEDATE" property="updatedate" jdbcType="VARCHAR" />
+    <result column="UPDATEBY" property="updateby" jdbcType="VARCHAR" />
+    <result column="NOTE" property="note" jdbcType="VARCHAR" />
+    <result column="NOTE1" property="note1" jdbcType="VARCHAR" />
+    <result column="NOTE2" property="note2" jdbcType="VARCHAR" />
+    <result column="NOTE3" property="note3" jdbcType="VARCHAR" />
+    <result column="NOTE4" property="note4" jdbcType="VARCHAR" />
+    <result column="NOTE5" property="note5" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    AssetsNo, ASSETSTYPE, ASSETSNAME, BUYPERSON, BUYPRICE, DANWEI, BUYNO, USERPERSON, 
+    RECIVETIME, HEAD, SAVETIME, SAVEPOINT, SAVESTATE, AUDITPERSON, USETIME, USEPLACE, 
+    RETURNTIME, USESTATE, CREATDATE, CREATBY, UPDATEDATE, UPDATEBY, NOTE, NOTE1, NOTE2, 
+    NOTE3, NOTE4, NOTE5
+  </sql>
+  <update id="updateUsesTate" parameterType="java.lang.String">
+    UPDATE corp_summary_detail SET USESTATE = 1 WHERE AssetsNo = #{value}
+  </update>
+  <update id="updateUsesTate1" parameterType="java.lang.String">
+    UPDATE corp_summary_detail SET USESTATE = 0 WHERE AssetsNo = #{value}
+  </update>
+  <select id="findCorpByAssType" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT * FROM corp_summary_detail WHERE ASSETSTYPE LIKE '%${value}%'AND USESTATE = 0
+  </select>
+  <select id="findAll" resultMap="BaseResultMap">
+    SELECT * FROM corp_summary_detail
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from corp_summary_detail
+    where AssetsNo = #{assetsno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from corp_summary_detail
+    where AssetsNo = #{assetsno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ky.workover.corp.model.CorpSummaryDetail" >
+    insert into corp_summary_detail (AssetsNo, ASSETSTYPE, ASSETSNAME, 
+      BUYPERSON, BUYPRICE, DANWEI, 
+      BUYNO, USERPERSON, RECIVETIME, 
+      HEAD, SAVETIME, SAVEPOINT, 
+      SAVESTATE, AUDITPERSON, USETIME, 
+      USEPLACE, RETURNTIME, USESTATE, 
+      CREATDATE, CREATBY, UPDATEDATE, 
+      UPDATEBY, NOTE, NOTE1, 
+      NOTE2, NOTE3, NOTE4, 
+      NOTE5)
+    values (#{assetsno,jdbcType=VARCHAR}, #{assetstype,jdbcType=VARCHAR}, #{assetsname,jdbcType=VARCHAR}, 
+      #{buyperson,jdbcType=VARCHAR}, #{buyprice,jdbcType=VARCHAR}, #{danwei,jdbcType=VARCHAR}, 
+      #{buyno,jdbcType=VARCHAR}, #{userperson,jdbcType=VARCHAR}, #{recivetime,jdbcType=VARCHAR}, 
+      #{head,jdbcType=VARCHAR}, #{savetime,jdbcType=VARCHAR}, #{savepoint,jdbcType=VARCHAR}, 
+      #{savestate,jdbcType=VARCHAR}, #{auditperson,jdbcType=VARCHAR}, #{usetime,jdbcType=VARCHAR}, 
+      #{useplace,jdbcType=VARCHAR}, #{returntime,jdbcType=VARCHAR}, #{usestate,jdbcType=VARCHAR}, 
+      #{creatdate,jdbcType=VARCHAR}, #{creatby,jdbcType=VARCHAR}, #{updatedate,jdbcType=VARCHAR}, 
+      #{updateby,jdbcType=VARCHAR}, #{note,jdbcType=VARCHAR}, #{note1,jdbcType=VARCHAR}, 
+      #{note2,jdbcType=VARCHAR}, #{note3,jdbcType=VARCHAR}, #{note4,jdbcType=VARCHAR}, 
+      #{note5,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ky.workover.corp.model.CorpSummaryDetail" >
+    insert into corp_summary_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="assetsno != null" >
+        AssetsNo,
+      </if>
+      <if test="assetstype != null" >
+        ASSETSTYPE,
+      </if>
+      <if test="assetsname != null" >
+        ASSETSNAME,
+      </if>
+      <if test="buyperson != null" >
+        BUYPERSON,
+      </if>
+      <if test="buyprice != null" >
+        BUYPRICE,
+      </if>
+      <if test="danwei != null" >
+        DANWEI,
+      </if>
+      <if test="buyno != null" >
+        BUYNO,
+      </if>
+      <if test="userperson != null" >
+        USERPERSON,
+      </if>
+      <if test="recivetime != null" >
+        RECIVETIME,
+      </if>
+      <if test="head != null" >
+        HEAD,
+      </if>
+      <if test="savetime != null" >
+        SAVETIME,
+      </if>
+      <if test="savepoint != null" >
+        SAVEPOINT,
+      </if>
+      <if test="savestate != null" >
+        SAVESTATE,
+      </if>
+      <if test="auditperson != null" >
+        AUDITPERSON,
+      </if>
+      <if test="usetime != null" >
+        USETIME,
+      </if>
+      <if test="useplace != null" >
+        USEPLACE,
+      </if>
+      <if test="returntime != null" >
+        RETURNTIME,
+      </if>
+      <if test="usestate != null" >
+        USESTATE,
+      </if>
+      <if test="creatdate != null" >
+        CREATDATE,
+      </if>
+      <if test="creatby != null" >
+        CREATBY,
+      </if>
+      <if test="updatedate != null" >
+        UPDATEDATE,
+      </if>
+      <if test="updateby != null" >
+        UPDATEBY,
+      </if>
+      <if test="note != null" >
+        NOTE,
+      </if>
+      <if test="note1 != null" >
+        NOTE1,
+      </if>
+      <if test="note2 != null" >
+        NOTE2,
+      </if>
+      <if test="note3 != null" >
+        NOTE3,
+      </if>
+      <if test="note4 != null" >
+        NOTE4,
+      </if>
+      <if test="note5 != null" >
+        NOTE5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="assetsno != null" >
+        #{assetsno,jdbcType=VARCHAR},
+      </if>
+      <if test="assetstype != null" >
+        #{assetstype,jdbcType=VARCHAR},
+      </if>
+      <if test="assetsname != null" >
+        #{assetsname,jdbcType=VARCHAR},
+      </if>
+      <if test="buyperson != null" >
+        #{buyperson,jdbcType=VARCHAR},
+      </if>
+      <if test="buyprice != null" >
+        #{buyprice,jdbcType=VARCHAR},
+      </if>
+      <if test="danwei != null" >
+        #{danwei,jdbcType=VARCHAR},
+      </if>
+      <if test="buyno != null" >
+        #{buyno,jdbcType=VARCHAR},
+      </if>
+      <if test="userperson != null" >
+        #{userperson,jdbcType=VARCHAR},
+      </if>
+      <if test="recivetime != null" >
+        #{recivetime,jdbcType=VARCHAR},
+      </if>
+      <if test="head != null" >
+        #{head,jdbcType=VARCHAR},
+      </if>
+      <if test="savetime != null" >
+        #{savetime,jdbcType=VARCHAR},
+      </if>
+      <if test="savepoint != null" >
+        #{savepoint,jdbcType=VARCHAR},
+      </if>
+      <if test="savestate != null" >
+        #{savestate,jdbcType=VARCHAR},
+      </if>
+      <if test="auditperson != null" >
+        #{auditperson,jdbcType=VARCHAR},
+      </if>
+      <if test="usetime != null" >
+        #{usetime,jdbcType=VARCHAR},
+      </if>
+      <if test="useplace != null" >
+        #{useplace,jdbcType=VARCHAR},
+      </if>
+      <if test="returntime != null" >
+        #{returntime,jdbcType=VARCHAR},
+      </if>
+      <if test="usestate != null" >
+        #{usestate,jdbcType=VARCHAR},
+      </if>
+      <if test="creatdate != null" >
+        #{creatdate,jdbcType=VARCHAR},
+      </if>
+      <if test="creatby != null" >
+        #{creatby,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null" >
+        #{updatedate,jdbcType=VARCHAR},
+      </if>
+      <if test="updateby != null" >
+        #{updateby,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null" >
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="note1 != null" >
+        #{note1,jdbcType=VARCHAR},
+      </if>
+      <if test="note2 != null" >
+        #{note2,jdbcType=VARCHAR},
+      </if>
+      <if test="note3 != null" >
+        #{note3,jdbcType=VARCHAR},
+      </if>
+      <if test="note4 != null" >
+        #{note4,jdbcType=VARCHAR},
+      </if>
+      <if test="note5 != null" >
+        #{note5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ky.workover.corp.model.CorpSummaryDetail" >
+    update corp_summary_detail
+    <set >
+      <if test="assetstype != null" >
+        ASSETSTYPE = #{assetstype,jdbcType=VARCHAR},
+      </if>
+      <if test="assetsname != null" >
+        ASSETSNAME = #{assetsname,jdbcType=VARCHAR},
+      </if>
+      <if test="buyperson != null" >
+        BUYPERSON = #{buyperson,jdbcType=VARCHAR},
+      </if>
+      <if test="buyprice != null" >
+        BUYPRICE = #{buyprice,jdbcType=VARCHAR},
+      </if>
+      <if test="danwei != null" >
+        DANWEI = #{danwei,jdbcType=VARCHAR},
+      </if>
+      <if test="buyno != null" >
+        BUYNO = #{buyno,jdbcType=VARCHAR},
+      </if>
+      <if test="userperson != null" >
+        USERPERSON = #{userperson,jdbcType=VARCHAR},
+      </if>
+      <if test="recivetime != null" >
+        RECIVETIME = #{recivetime,jdbcType=VARCHAR},
+      </if>
+      <if test="head != null" >
+        HEAD = #{head,jdbcType=VARCHAR},
+      </if>
+      <if test="savetime != null" >
+        SAVETIME = #{savetime,jdbcType=VARCHAR},
+      </if>
+      <if test="savepoint != null" >
+        SAVEPOINT = #{savepoint,jdbcType=VARCHAR},
+      </if>
+      <if test="savestate != null" >
+        SAVESTATE = #{savestate,jdbcType=VARCHAR},
+      </if>
+      <if test="auditperson != null" >
+        AUDITPERSON = #{auditperson,jdbcType=VARCHAR},
+      </if>
+      <if test="usetime != null" >
+        USETIME = #{usetime,jdbcType=VARCHAR},
+      </if>
+      <if test="useplace != null" >
+        USEPLACE = #{useplace,jdbcType=VARCHAR},
+      </if>
+      <if test="returntime != null" >
+        RETURNTIME = #{returntime,jdbcType=VARCHAR},
+      </if>
+      <if test="usestate != null" >
+        USESTATE = #{usestate,jdbcType=VARCHAR},
+      </if>
+      <if test="creatdate != null" >
+        CREATDATE = #{creatdate,jdbcType=VARCHAR},
+      </if>
+      <if test="creatby != null" >
+        CREATBY = #{creatby,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null" >
+        UPDATEDATE = #{updatedate,jdbcType=VARCHAR},
+      </if>
+      <if test="updateby != null" >
+        UPDATEBY = #{updateby,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null" >
+        NOTE = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="note1 != null" >
+        NOTE1 = #{note1,jdbcType=VARCHAR},
+      </if>
+      <if test="note2 != null" >
+        NOTE2 = #{note2,jdbcType=VARCHAR},
+      </if>
+      <if test="note3 != null" >
+        NOTE3 = #{note3,jdbcType=VARCHAR},
+      </if>
+      <if test="note4 != null" >
+        NOTE4 = #{note4,jdbcType=VARCHAR},
+      </if>
+      <if test="note5 != null" >
+        NOTE5 = #{note5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where AssetsNo = #{assetsno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ky.workover.corp.model.CorpSummaryDetail" >
+    update corp_summary_detail
+    set ASSETSTYPE = #{assetstype,jdbcType=VARCHAR},
+      ASSETSNAME = #{assetsname,jdbcType=VARCHAR},
+      BUYPERSON = #{buyperson,jdbcType=VARCHAR},
+      BUYPRICE = #{buyprice,jdbcType=VARCHAR},
+      DANWEI = #{danwei,jdbcType=VARCHAR},
+      BUYNO = #{buyno,jdbcType=VARCHAR},
+      USERPERSON = #{userperson,jdbcType=VARCHAR},
+      RECIVETIME = #{recivetime,jdbcType=VARCHAR},
+      HEAD = #{head,jdbcType=VARCHAR},
+      SAVETIME = #{savetime,jdbcType=VARCHAR},
+      SAVEPOINT = #{savepoint,jdbcType=VARCHAR},
+      SAVESTATE = #{savestate,jdbcType=VARCHAR},
+      AUDITPERSON = #{auditperson,jdbcType=VARCHAR},
+      USETIME = #{usetime,jdbcType=VARCHAR},
+      USEPLACE = #{useplace,jdbcType=VARCHAR},
+      RETURNTIME = #{returntime,jdbcType=VARCHAR},
+      USESTATE = #{usestate,jdbcType=VARCHAR},
+      CREATDATE = #{creatdate,jdbcType=VARCHAR},
+      CREATBY = #{creatby,jdbcType=VARCHAR},
+      UPDATEDATE = #{updatedate,jdbcType=VARCHAR},
+      UPDATEBY = #{updateby,jdbcType=VARCHAR},
+      NOTE = #{note,jdbcType=VARCHAR},
+      NOTE1 = #{note1,jdbcType=VARCHAR},
+      NOTE2 = #{note2,jdbcType=VARCHAR},
+      NOTE3 = #{note3,jdbcType=VARCHAR},
+      NOTE4 = #{note4,jdbcType=VARCHAR},
+      NOTE5 = #{note5,jdbcType=VARCHAR}
+    where AssetsNo = #{assetsno,jdbcType=VARCHAR}
+  </update>
+</mapper>
