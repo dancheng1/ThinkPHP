@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title></title>
+    <link href="application/views/admin/tyles/general.css" rel="stylesheet" type="text/css" />
+    <link href="application/views/admin/styles/main.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h1>
+    <span class="action-span"><a href="index.php?p=admin&c=activity&a=jumpAdd">添加活动</a></span>
+    <span class="action-span1"><a href="index.php?p=admin&c=index&a=main">ACM后台系统</a> </span><span id="search_id" class="action-span1"> - 活动列表 - 比赛活动 </span>
+    <div style="clear:both"></div>
+</h1>
+
+<div class="form-div">
+    <form action="" name="searchForm">
+        <img src="application/views/admin/images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" onclick="">
+        <input type="button" value="比赛活动" class="button" onclick="location.href='index.php?p=admin&c=activity&a=findBiSai'">
+        <input type="button" value="培训活动" class="button" onclick="location.href='index.php?p=admin&c=activity&a=findPeiXun'">
+        <input type="button" value="全体活动" class="button" onclick="location.href='index.php?p=admin&c=activity&a=findAll'">
+    </form>
+</div>
+
+<form method="post" action="" name="listForm" onsubmit="return confirmSubmit(this)">
+    <!-- start goods list -->
+    <div class="list-div" id="listDiv">
+        <table cellpadding="3" cellspacing="1">
+            <tbody>
+            <tr>
+                <th>活动姓名</th>
+                <th>组织者</th>
+                <th>创建时间</th>
+            </tr>
+            <tr></tr>
+            <?php
+				foreach($activitys as $activity):
+				?>
+            <tr>
+                <td align="center" class="first-cell"><span><?php echo $activity['title']; ?></span></td>
+                <td align="center"><span><?php echo $activity['creator']; ?></span></td>
+                <td align="center"><span><?php echo date('Y-m-d H:i:s', $activity['createtime']); ?></span></td>
+                <td align="center">
+                    <a href="index.php?p=admin&c=activity&a=jumpEdit&id=<?php echo $activity['id']; ?>" title="查看"><img src="application/views/admin/images/icon_view.gif" width="16" height="16" border="0"></a>
+                    <a href="index.php?p=admin&c=activity&a=jumpUpdate&id=<?php echo $activity['id']; ?>" title="修改"><img src="application/views/admin/images/icon_edit.gif" width="16" height="16" border="0"></a>
+                    <?php $activity_id = $activity['id']; ?>
+                    <a href="javascript:;" onclick="if(confirm('您确实要删除这个活动吗？'))  location.href='index.php?p=admin&c=activity&a=dele&id=<?php echo $activity_id; ?>'" title="回收站"><img src="application/views/admin/images/icon_trash.gif" width="16" height="16" border="0"></a>
+                </td>
+            </tr>
+            <?php
+				endforeach;
+				?>
+            </tbody>
+        </table>
+        <?php echo $pageinfo;?>
+        <!-- 分页 -->
+        <!--<table id="page-table" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td align="right" nowrap="true" style="background-color: rgb(255, 255, 255);">
+                        &lt;!&ndash; $Id: page.htm 14216 2008-03-10 02:27:21Z testyang $ &ndash;&gt;
+                        <div id="turn-page">
+                            总计  <span id="totalRecords">22</span>个记录分为 <span id="totalPages">2</span>页当前第 <span id="pageCurrent">1</span>
+                            页，每页 <input type="text" size="3" id="pageSize" value="15" onkeypress="return listTable.changePageSize(event)">
+                            <span id="page-link">
+                                <a href="javascript:listTable.gotoPageFirst()">第一页</a>
+                                <a href="javascript:listTable.gotoPagePrev()">上一页</a>
+                                <a href="javascript:listTable.gotoPageNext()">下一页</a>
+                                <a href="javascript:listTable.gotoPageLast()">最末页</a>
+                                <select id="gotoPage" onchange="listTable.gotoPage(this.value)">
+                                <option value="1">1</option><option value="2">2</option>          </select>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>-->
+    </div>
+</form>
+
+<div id="footer">
+    版权所有 &copy; 2017 07 29 by dancheng
+</div>
+
+</body>
+</html>

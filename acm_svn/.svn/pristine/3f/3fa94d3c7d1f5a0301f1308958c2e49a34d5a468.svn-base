@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Member Message</title>
+    <meta name="keywords" content="" />
+<meta name="description" content="" />
+    <meta name="author" content="dancheng">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	
+
+	<link rel="stylesheet" type="text/css" href="public/22vd/css/bootstrap.min.css" media="screen">
+	
+ 	<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+	<link rel="stylesheet" type="text/css" href="public/22vd/rs-plugin/css/settings.css" media="screen" />
+	
+	<link rel="stylesheet" href="public/22vd/css/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="public/22vd/css/lightbox.min.css" media="all"/>
+	<link rel="stylesheet" type="text/css" href="public/22vd/css/stroke-gap-icons.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="public/22vd/css/pe-icon-7-stroke.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="public/22vd/css/elegant-icons.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="public/22vd/css/font-awesome.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="public/22vd/css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="public/22vd/css/responsive.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="public/22vd/rs-plugin/css/settings.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="public/22vd/css/animate.css"/>
+	<link rel="stylesheet" type="text/css" href="public/22vd/css/flexslider.css" media="screen" />
+	
+	<link rel="shortcut icon" href="/public/22vd/upload/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/public/22vd/upload/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+	<!-- Preloader -->
+	<div id="preloader">
+	    <div id="status">&nbsp;</div>
+	</div>
+
+	<header>
+	<!-- Navbar -->
+	    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	    	<nav class="navigation">
+		      	<div class="container">
+			        <div class="navbar-header">
+			        	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+				            <span class="sr-only">Toggle navigation</span>
+				            <span class="icon-bar"></span>
+				            <span class="icon-bar"></span>
+				            <span class="icon-bar"></span>
+			        	</button>	        	 
+						<!-- Logo -->
+						<div class="logo">
+				        	<a href="index.php">
+				        		<img class="small-logo" src="public/22vd/upload/logo-dark.png" alt="logo">
+				          	</a>
+			        	</div>         
+			        </div> <!-- end navbar-header -->
+
+			        <div class="collapse navbar-collapse" id="navbar-collapse">
+			          
+			        	<ul class="nav navbar-nav navbar-right">
+							<li class="dropdown">
+								<a href="index.php" class="dropdown-toggle" >网站首页</a>
+							</li>
+
+							<li class="dropdown">
+								<a href="index.php?p=home&c=resource&a=junpResource" class="dropdown-toggle" data-hover="dropdown">资源共享</a>
+								<ul class="dropdown-menu sub-menu">
+									<li><a href="index.php?p=home&c=resource&a=jumpVideo">视频资源</a></li>
+									<li><a href="index.php?p=home&c=resource&a=jumpNodes">笔记</a></li>
+									<li><a href="index.php?p=home&c=resource&a=jumpBooks">书籍推荐</a></li>
+								</ul>
+							</li>
+
+							<li class="dropdown">
+								<a href="index.php?p=home&c=activity&a=jumpActivity" class="dropdown-toggle" data-hover="dropdown">活动广场</a>
+								<ul class="dropdown-menu sub-menu">
+									<li><a href="index.php?p=home&c=activity&a=jumpMatch">比赛</a></li>
+									<li><a href="index.php?p=home&c=activity&a=jumpTrain">培训</a></li>
+									<li><a href="index.php?p=home&c=activity&a=jumpSituation">最新动态</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="index.php?p=home&c=word&a=jumpWord" class="dropdown-toggle" data-hover="dropdown" >会员留言</a>
+							</li>
+							<li class="dropdown">
+								<a href="index.php?p=home&c=index&a=jumpOur" class="dropdown-toggle" data-hover="dropdown">关于我们</a>
+							</li>
+							<li class="dropdown">
+								<a href="index.php?p=home&c=index&a=jumpLink" class="dropdown-toggle" data-hover="dropdown">联系我们</a>
+							</li>
+							<li class="dropdown">
+								<a href="index.php?p=home&c=user&a=jumpUser" class="dropdown-toggle" data-hover="dropdown">个人中心</a>
+								<ul class="dropdown-menu sub-menu">
+									<li><a href="index.php?p=home&c=user&a=jumpLogin">登录</a></li>
+									<li><a href="index.php?p=home&c=user&a=jumpJoin">加入我们</a></li>
+									<li><a href="index.php?p=home&c=user&a=jumpMessage">消息</a></li>
+									<li><a href="index.php?p=home&c=user&a=jumpBlog">博客</a></li>
+								</ul>
+							</li>
+			        	</ul> <!-- end menu -->
+			        </div> <!-- end collapse -->    
+	      		</div> <!-- end container -->
+	      	</nav> <!-- end navigation -->
+	    </nav> <!-- End Navbar -->
+	</header>
+
+
+<div class="main-wrapper">
+
+	<!-- Page Title -->
+		<section id="page-title">
+			<div class="container clearfix">
+				<h1>会员留言</h1>
+				<ol class="breadcrumb">
+					<a href="index.php" >首页</a> > <a href="index.php?p=home&c=word&a=jumpWord" >会员留言</a> >
+				</ol> <!-- end breadcrumbs -->
+			</div> <!-- end container -->
+		</section> <!-- end page title -->
+		<!-- 共享资源三大分类 -->
+		<section class="section-wrap services">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="service-item icon-effect-1 icon-blue icon-effect-1a">
+						<a href="#">
+							<i class="hi-icon icon icon-Pen"></i>
+						</a>
+						<h5 class="text-center">笔记</h5>
+						<div class="main-border blue"></div>
+						<p class="text-center">创客云专业提供网站模板，网页模板，模板教程，培训视频，网页制作，程序插件，网站素材等建站资源免费下载</p>
+					</div>
+				</div> <!-- end service item -->
+
+				<div class="col-sm-4">
+					<div class="service-item icon-effect-1 icon-violet icon-effect-1a">
+						<a href="#">
+							<i class="hi-icon icon icon-FullScreen"></i>
+						</a>
+						<h5 class="text-center">视频教程</h5>
+						<div class="main-border violet"></div>
+						<p class="text-center">创客云提供系统全面的视频教程，让你轻松学习建站。视频涉及网站建设基础教程，织梦视频教程，discuz视频教程。</p>
+					</div>
+				</div> <!-- end service item -->
+
+				<div class="col-sm-4">
+					<div class="service-item icon-effect-1 icon-orange icon-effect-1a last">
+						<a href="#">
+							<i class="hi-icon icon icon-Settings"></i>
+						</a>
+						<h5 class="text-center">书籍推荐</h5>
+						<div class="main-border orange"></div>
+						<p class="text-center">从零开始系统全面的教你如何建立一个属于自己的网站并实现盈利。课程涉及网站搭建，网站SEO，模板开发等最新建站技术</p>
+					</div>
+				</div><!-- end service item -->
+			</div> <!-- end row -->
+		</div> <!-- end container -->
+	</section> <!-- end services -->
+
+		<section class="section-wrap core-features">
+		<div class="container">
+			<div class="row mt-38">
+
+				<div class="col-sm-4">
+					<div class="features-item">
+						<div class="features-icon">
+							<i class="icon icon-Tools"></i>
+						</div>
+						<h5>网站模板</h5>
+						<p>创客云专业提供网站模板，网页模板，模板教程，培训视频，网页制作，程序插件，网站素材等建站资源免费下载</p>
+					</div>
+				</div> <!-- end features item -->
+
+				<div class="col-sm-4">
+					<div class="features-item">
+						<div class="features-icon">
+							<i class="icon icon-Timer"></i>
+						</div>
+						<h5>视频教程</h5>
+						<p>创客云提供系统全面的视频教程，让你轻松学习建站。视频涉及网站建设基础教程，织梦视频教程，discuz视频教程</p>
+					</div>
+				</div> <!-- end features item -->
+
+				<div class="col-sm-4">
+					<div class="features-item">
+						<div class="features-icon">
+							<i class="icon icon-Notes"></i>
+						</div>
+						<h5>在线培训</h5>
+						<p>从零开始系统全面的教你如何建立一个属于自己的网站并实现盈利。课程涉及网站搭建，SEO，模板开发等建站技术</p>
+					</div>
+				</div> <!-- end features item -->
+
+			</div> <!-- end row -->
+
+			<div class="row">
+
+				<div class="col-sm-4">
+					<div class="features-item">
+						<div class="features-icon">
+							<i class="icon icon-Search"></i>
+						</div>
+						<h5>Discuz模板</h5>
+						<p>创客云提供dz模板，discuz 论坛模板，discuz! x2.5，discuz x3.0风格主题下载，是您寻找discuz模板的最佳选择</p>
+					</div>
+				</div> <!-- end features item -->
+
+				<div class="col-sm-4">
+					<div class="features-item">
+						<div class="features-icon">
+							<i class="icon icon-Layers"></i>
+						</div>
+						<h5>Dedecms模板</h5>
+						<p>创客云提供dede模板，织梦模板，织梦小说模板，织梦企业模板，织梦下载站模板，是您寻找dedecms模板的最佳选择</p>
+					</div>
+				</div> <!-- end features item -->
+
+				<div class="col-sm-4">
+					<div class="features-item">
+						<div class="features-icon">
+							<i class="icon icon-Drop"></i>
+						</div>
+						<h5>Wordpress模板</h5>
+						<p>创客云提供wordpress主题，wordpress中文主题，wordpress淘宝客主题。是您寻找wordpress主题的最佳选择</p>
+					</div>
+				</div> <!-- end features item -->
+
+			</div> <!-- end row -->
+
+		</div> <!-- end container -->
+	</section>
+
+		<section class="section-wrap icon-boxes style-3">
+		<div class="container">
+			<div class="row">
+
+				<div data-wow-delay="0.5s" data-wow-duration="2s" class="col-md-3 col-sm-6 wow fadeIn" style="visibility: visible; animation-duration: 2s; animation-delay: 0.5s; animation-name: fadeIn;">
+					<div class="service-item-box first">
+						<a href="#">
+							<i class="icon icon-ShoppingCart"></i>
+						</a>
+						<h3>网站模板</h3>
+						<p>创客云专业提供网站模板，网页模板，模板教程，培训视频，网页制作，程序插件，网站素材等建站资源免费下载</p>
+						<a href="#">查看更多</a>
+					</div>
+				</div> <!-- end service item -->
+
+				<div data-wow-delay="0.6s" data-wow-duration="2s" class="col-md-3 col-sm-6 wow fadeIn" style="visibility: visible; animation-duration: 2s; animation-delay: 0.6s; animation-name: fadeIn;">
+					<div class="service-item-box second">
+						<a href="#">
+							<i class="icon icon-Timer"></i>
+						</a>
+						<h3>视频教程</h3>
+						<p>创客云提供系统全面的视频教程，让你轻松学习建站。视频涉及网站建设基础教程，织梦视频教程，discuz视频教程</p>
+						<a href="#">查看更多</a>
+					</div>
+				</div> <!-- end service item -->
+
+				<div data-wow-delay="0.7s" data-wow-duration="2s" class="col-md-3 col-sm-6 wow fadeIn" style="visibility: visible; animation-duration: 2s; animation-delay: 0.7s; animation-name: fadeIn;">
+					<div class="service-item-box third">
+						<a href="#">
+							<i class="icon icon-Search"></i>
+						</a>
+						<h3>在线培训</h3>
+						<p>从零开始系统全面的教你如何建立一个属于自己的网站并实现盈利。课程涉及网站搭建，SEO，模板开发等建站技术</p>
+						<a href="#">查看更多</a>
+					</div>
+				</div> <!-- end service item -->
+
+				<div data-wow-delay="0.8s" data-wow-duration="2s" class="col-md-3 col-sm-6 wow fadeIn" style="visibility: visible; animation-duration: 2s; animation-delay: 0.8s; animation-name: fadeIn;">
+					<div class="service-item-box fourth">
+						<a href="#">
+							<i class="icon icon-Blog"></i>
+						</a>
+						<h3>网站SEO</h3>
+						<p>创客云专业提供网站模板，网页模板，模板教程，培训视频，网页制作，程序插件，网站素材等建站资源免费下载</p>
+						<a href="#">查看更多</a>
+					</div>
+				</div> <!-- end service item -->
+
+			</div> <!-- end row -->
+
+		</div> <!-- end container -->
+	</section>
+        
+		<section class="section-wrap process-parallax">
+			<div class="container">
+				<h2 class="text-center heading-white">交易流程</h2>
+				<p class="subheading text-center">www.22vd.com</p>
+				<div class="main-border blue"></div>
+
+				<div class="row mt50">
+
+					<div data-wow-duration="1s" data-wow-delay="0.2s" class="col-sm-5ths text-center wow bounceIn" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: bounceIn;">
+						<div class="process-item icon-effect-8 icon-blue">
+							<a href="#">
+								<i class="hi-icon icon icon-ClipboardText"></i>
+							</a>
+							<h5 class="heading-white">1. 联系客服</h5>						
+						</div>
+					</div>
+
+					<div data-wow-duration="1s" data-wow-delay="0.3s" class="col-sm-5ths text-center wow bounceIn" style="visibility: visible; animation-duration: 1s; animation-delay: 0.3s; animation-name: bounceIn;">
+						<div class="process-item icon-effect-8 icon-blue">
+							<a href="#">
+								<i class="hi-icon icon icon-Bulb"></i>
+							</a>
+							<h5 class="heading-white">2. 沟通意见</h5>						
+						</div>
+					</div>
+
+					<div data-wow-duration="1s" data-wow-delay="0.4s" class="col-sm-5ths text-center wow bounceIn" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s; animation-name: bounceIn;">
+						<div class="process-item icon-effect-8 icon-blue">
+							<a href="#">
+								<i class="hi-icon icon icon-Settings"></i>
+							</a>
+							<h5 class="heading-white">3. 确认定单</h5>						
+						</div>
+					</div>
+
+					<div data-wow-duration="1s" data-wow-delay="0.5s" class="col-sm-5ths text-center wow bounceIn" style="visibility: visible; animation-duration: 1s; animation-delay: 0.5s; animation-name: bounceIn;">
+						<div class="process-item icon-effect-8 icon-blue">
+							<a href="#">
+								<i class="hi-icon icon icon-Starship"></i>
+							</a>
+							<h5 class="heading-white">4. 开发制作</h5>						
+						</div>
+					</div>
+
+					<div data-wow-duration="1s" data-wow-delay="0.6s" class="col-sm-5ths text-center wow bounceIn" style="visibility: visible; animation-duration: 1s; animation-delay: 0.6s; animation-name: bounceIn;">
+						<div class="process-item icon-effect-8 icon-blue">
+							<a href="#">
+								<i class="hi-icon icon icon-Headset"></i>
+							</a>
+							<h5 class="heading-white">5. 验收交付</h5>						
+						</div>
+					</div>
+
+				</div> <!-- end row -->
+			</div> <!-- end container -->
+		</section>
+        
+		<section id="featured-works" class="featured-wide-slider section-wrap bg-light">
+			<div class="container">
+				<h2 class="text-center mb80">成功案例</h2>
+			
+				<div id="owl-featured-works-one-img" class="owl-carousel owl-theme">
+
+					<div class="item">
+						<a href="#">
+							<img src="public/22vd/upload/onepage/featured_works_img_1.jpg" alt="featured-works-img1">
+						</a>
+					</div> <!-- end first item -->
+
+					<div class="item">
+						<a href="#">
+							<img src="public/22vd/upload/onepage/featured_works_img_2.jpg" alt="featured-works-img2">
+						</a>
+					</div> <!-- end second item -->
+
+					<div class="item">
+						<a href="#">
+							<img src="public/22vd/upload/onepage/featured_works_img_3.jpg" alt="featured-works-img3">
+						</a>
+					</div> <!-- end third item -->
+
+				</div> <!-- end owl carousel -->
+			</div> <!-- end container -->			
+		</section> <!-- end featured works -->
+        
+        <section class="section-wrap results-parallax">
+			<div class="container">
+				<h2 class="text-center heading-white">网站数据</h2>
+				<p class="subheading text-center">www.22vd.com</p>
+				<div class="main-border blue"></div>
+
+				<div class="row mt30">
+					<div class="col-sm-3 text-center">
+						<div class="statistic">
+							<span class="timer" data-from="0" data-to="547">547</span>
+							<h5 class="counter-text">VIP会员</h5>
+						</div>
+					</div> <!-- end col -->
+
+					<div class="col-sm-3 text-center">
+						<div class="statistic">
+							<span class="timer" data-from="0" data-to="1024">1024</span>
+							<h5 class="counter-text">视频教程</h5>
+						</div>
+					</div> <!-- end col -->
+
+					<div class="col-sm-3 text-center">
+						<div class="statistic">
+							<span class="timer" data-from="0" data-to="3589">3589</span>
+							<h5 class="counter-text">网站模板</h5>
+						</div>
+					</div> <!-- end col -->
+
+					<div class="col-sm-3 text-center">
+						<div class="statistic">
+							<span class="timer" data-from="0" data-to="999">999</span>
+							<h5 class="counter-text">创客云学员</h5>
+						</div>
+					</div> <!-- end col -->
+				</div> <!-- end row -->
+			</div> <!-- end container -->
+		</section>
+        
+        
+        <section class="section-wrap testimonials-boxes bg-light">
+			<div class="container">
+				<h2 class="text-center">客户评价</h2>
+				<p class="subheading text-center">www.22vd.com</p>
+				<div class="main-border blue"></div>
+
+				<div class="row mt20">
+					<div data-wow-delay="0.2" data-wow-duration="2s" class="col-sm-6 wow fadeIn" style="visibility: visible; animation-duration: 2s; animation-name: fadeIn;">
+						<div class="testimonial-item">
+							<div class="testimonials-box">
+								<img alt="testimonials-img-1" class="testimonials-img" src="public/22vd/upload/testimonials_img_1.jpg">
+								<div class="testimonial">
+									<h5 class="testimonial-name">蓝新科技</h5>
+									<span>CEO of Company</span>
+									<p>在网上寻觅了很久很久。终于找到了这里。晃眼一看，好多漂亮的模板。下载了几个都很好用。希望越做越好，多提供些精品资源！</p>
+								</div>
+							</div>
+						</div> <!-- end first testimonial -->
+					</div> <!-- end col -->
+
+					<div data-wow-delay="0.4" data-wow-duration="2s" class="col-sm-6 wow fadeIn" style="visibility: visible; animation-duration: 2s; animation-name: fadeIn;">
+						<div class="testimonial-item">
+							<div class="testimonials-box">
+								<img alt="testimonials-img-2" class="testimonials-img" src="public/22vd/upload/testimonials_img_2.jpg">
+								<div class="testimonial">
+									<h5 class="testimonial-name">红色海水</h5>
+									<span>Graphicriver.net</span>
+									<p>找了好久啊，一直想有一个这样的网站，找来找去，老感觉么有合适的。偶然间来到这儿，爽。找到啦！支持创客云！</p>
+								</div>
+							</div>
+						</div> <!-- end testimonial -->
+					</div> <!-- end col -->
+				</div> <!-- end row -->
+
+				<div class="row">
+					<div data-wow-delay="0.6" data-wow-duration="2s" class="col-sm-6 wow fadeIn" style="visibility: visible; animation-duration: 2s; animation-name: fadeIn;">
+						<div class="testimonial-item">
+							<div class="testimonials-box">
+								<img alt="testimonials-img-3" class="testimonials-img" src="public/22vd/upload/testimonials_img_3.jpg">
+								<div class="testimonial">
+									<h5 class="testimonial-name">游水的鱼</h5>
+									<span>Creative Designer</span>
+									<p>找模板找了很久了，于是找到了创客云，觉的这里的模板很不错，下载了两套试试，果然可以用。于是充值了，希望站长以后多多指点啊！</p>
+								</div>
+							</div>
+						</div> <!-- end first testimonial -->
+					</div> <!-- end col -->
+
+					<div data-wow-delay="0.8" data-wow-duration="2s" class="col-sm-6 wow fadeIn" style="visibility: visible; animation-duration: 2s; animation-name: fadeIn;">
+						<div class="testimonial-item">
+							<div class="testimonials-box">
+								<img alt="testimonials-img-4" class="testimonials-img" src="public/22vd/upload/testimonials_img_4.jpg">
+								<div class="testimonial">
+									<h5 class="testimonial-name">sun520mm</h5>
+									<span>设计师</span>
+									<p>创客云站长很友好，为我们这些新手站长提供这么多的模版。大家一起交流，才能成长得更快吧！感谢创客云，感谢网友，你们辛苦了！</p>
+								</div>
+							</div>
+						</div> <!-- end testimonial -->
+					</div> <!-- end col -->
+				</div> <!-- end row -->
+
+			</div> <!-- end container -->
+		</section>
+        
+        <section class="partners-dark">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-2 col-sm-4 col-xs-6">
+						<a href="#">
+							<img alt="partner logo 1" src="public/22vd/upload/partner_logo_1.png" >
+						</a>
+					</div> <!-- end first logo -->
+
+					<div class="col-md-2 col-sm-4 col-xs-6">
+						<a href="#">
+							<img alt="partner logo 2" src="public/22vd/upload/partner_logo_2.png" >
+						</a>
+					</div> <!-- end second logo -->
+
+					<div class="col-md-2 col-sm-4 col-xs-6">
+						<a href="#">
+							<img alt="partner logo 3" src="public/22vd/upload/partner_logo_3.png" >
+						</a>
+					</div> <!-- end third logo -->
+
+					<div class="col-md-2 col-sm-4 col-xs-6">
+						<a href="#">
+							<img alt="partner logo 4" src="public/22vd/upload/partner_logo_4.png" >
+						</a>
+					</div> <!-- end fourth logo -->
+
+					<div class="col-md-2 col-sm-4 col-xs-6">
+						<a href="#">
+							<img alt="partner logo 5" src="public/22vd/upload/partner_logo_5.png" >
+						</a>
+					</div> <!-- end fifth logo -->
+
+					<div class="col-md-2 col-sm-4 col-xs-6">
+						<a href="#">
+							<img alt="partner logo 6" src="public/22vd/upload/partner_logo_6.png" >
+						</a>
+					</div> <!-- end last logo -->
+				</div> <!-- end row -->
+			</div> <!-- end container -->
+		</section>
+    
+    	<section class="section-wrap contact">
+			<div class="container">			
+				<h2 class="text-center">联系我们</h2>
+				<p class="subheading text-center">我们致为于打造优秀的建站资源共享平台</p>
+				<div class="main-border blue"></div>
+
+				<div class="row mt50">
+					<div class="col-md-7 col-sm-7">
+						<form action="http://dede02.va666.com/plus/diy.php" method="post" enctype="multipart/form-data">
+                        <input type="hidden" value="post" name="action">
+                        <input type="hidden" value="3" name="diyid">
+                        <input type="hidden" value="2" name="do">
+							<input name="name4" type="text" class="form-control" placeholder="名字">
+							<input name="email4" type="text" class="form-control" placeholder="邮箱">	
+							<input name="title4" type="text" class="form-control" placeholder="标题">	
+							<textarea name="con4" class="form-control" placeholder="内容"></textarea>
+                            <input type="hidden" value="name4,text;email4,text;title4,text;con4,multitext" name="dede_fields">
+                            <input type="hidden" value="3b6c709db80d60e5cdaca9c897f70c21" name="dede_fieldshash">
+		  					<input type="submit" value="在线留言" class="submit-message">
+			  			</form>
+					</div> <!-- end col -->
+					
+					<div class="col-md-4 col-md-offset-1 col-sm-5">
+						<h5>在线客服</h5>
+						<p>工作时间 8:00 pm – 20:00 pm<br>
+						您可以通过电话或者在线留言联系我们</p>
+						<div class="contact-item">
+							<div class="contact-icon">
+								<i class="icon icon-Phone2"></i>
+							</div>
+							<span>028-88888888</span>
+						</div> <!-- end phone number -->
+
+						<div class="contact-item">
+							<div class="contact-icon">
+								<i class="icon icon-Mail"></i>
+							</div>
+							<a href="mailto:admin@qq.com">admin@qq.com</a>
+						</div> <!-- end email -->
+
+						<div class="contact-item">
+							<div class="contact-icon">
+								<i class="icon icon-House"></i>
+							</div>
+							<span>四川省成都市高新区孵化园</span>
+						</div> <!-- end address -->
+
+					</div> <!-- end col -->
+				</div> <!-- end row -->
+			</div> <!-- end container -->
+		</section> <!-- end contact -->
+	
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="bottom-footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 text-center">
+							<div class="copyright">
+								Copyright &copy; JLJU_ACM 版权所有
+							</div>
+						</div> <!-- end col -->
+					</div> <!-- end row -->
+				</div> <!-- end container -->
+			</div> <!-- end bottom footer -->
+		</footer> 
+        
+
+		<div id="back-to-top">
+			<a href="#top"><i class="fa fa-angle-up"></i></a>
+		</div>
+
+        <!-- end footer -->
+
+
+	</div> <!-- end main-wrapper -->
+	
+
+	<!-- jQuery Scripts -->
+	<script src="public/22vd/js/jquery.min.js"></script>
+ 	<script type="text/javascript" src="public/22vd/js/lightbox.min.js"></script>
+	<script type="text/javascript" src="public/22vd/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="public/22vd/js/bootstrap-hover-dropdown.min.js"></script>
+	<script type="text/javascript" src="public/22vd/js/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="public/22vd/js/jquery.countTo.js"></script>
+	<script type="text/javascript" src="public/22vd/js/jquery.appear.js"></script>
+	<script type="text/javascript" src="public/22vd/js/plugins-scroll.js"></script>
+	<script type="text/javascript" src="public/22vd/js/isotope.pkgd.min.js"></script>
+	<script type="text/javascript" src="public/22vd/js/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="public/22vd/js/jquery.easypiechart.min.js"></script>
+	<script type="text/javascript" src="public/22vd/js/jquery.flexslider-min.js"></script>
+	<script type="text/javascript" src="public/22vd/js/imagesloaded.pkgd.min.js"></script>
+	<script src="public/22vd/js/wow.min.js"></script>
+
+	<!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
+	<script type="text/javascript" src="public/22vd/rs-plugin/js/jquery.themepunch.tools.min.js" ></script>
+	<script type="text/javascript" src="public/22vd/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+	<!-- Custom Theme JavaScript -->
+    <script src="public/22vd/js/scripts.js"></script>
+
+	<!-- Revolution Slider -->
+	<script type="text/javascript">
+				jQuery(document).ready(function() {
+					   jQuery('.tp-banner').revolution(
+						{
+							delay:9000,
+							startwidth:1170,
+							startheight:680,
+							hideThumbs:10,
+
+							navigationType:"bullet",							
+							navigationStyle:"preview1",
+
+							hideArrowsOnMobile:"on",
+							
+							touchenabled:"on",
+							onHoverStop:"on",
+							spinner:"spinner4"
+						});
+				});
+	</script>
+	  
+</body>
+</html>

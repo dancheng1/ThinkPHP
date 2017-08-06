@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>About us-ACM</title>
+    <meta name="keywords" content="" />
+<meta name="description" content="" />
+    <meta name="author" content="www.22vd.com">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	
+
+	<link rel="stylesheet" type="text/css" href="public/22vd/css/bootstrap.min.css" media="screen">
+	
+ 	<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+	<link rel="stylesheet" type="text/css" href="public/22vd/rs-plugin/css/settings.css" media="screen" />
+	
+	<link rel="stylesheet" href="public/22vd/css/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="public/22vd/css/lightbox.min.css" media="all"/>
+	<link rel="stylesheet" type="text/css" href="public/22vd/css/stroke-gap-icons.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="public/22vd/css/pe-icon-7-stroke.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="public/22vd/css/elegant-icons.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="public/22vd/css/font-awesome.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="public/22vd/css/style.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="public/22vd/css/responsive.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="public/22vd/rs-plugin/css/settings.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="public/22vd/css/animate.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="public/22vd/css/flexslider.css"  media="screen" />
+	
+	<link rel="shortcut icon" href="/public/22vd/upload/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/public/22vd/upload/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+	<!-- Preloader -->
+	<div id="preloader">
+	    <div id="status">&nbsp;</div>
+	</div>
+
+	<header>
+	<!-- Navbar -->
+	    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	    	<nav class="navigation">
+		      	<div class="container">
+			        <div class="navbar-header">
+			        	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+				            <span class="sr-only">Toggle navigation</span>
+				            <span class="icon-bar"></span>
+				            <span class="icon-bar"></span>
+				            <span class="icon-bar"></span>
+			        	</button>	        	 
+						<!-- Logo -->
+						<div class="logo">
+				        	<a href="index.php">
+				        		<img class="small-logo" src="public/22vd/upload/logo-dark.png" alt="logo">
+				          	</a>
+			        	</div>         
+			        </div> <!-- end navbar-header -->
+
+			        <div class="collapse navbar-collapse" id="navbar-collapse">
+			        	<ul class="nav navbar-nav navbar-right">
+							<li class="dropdown">
+								<a href="index.php" class="dropdown-toggle" >网站首页</a>
+							</li>
+
+							<li class="dropdown">
+								<a href="index.php?p=home&c=resource&a=junpResource" class="dropdown-toggle" data-hover="dropdown">资源共享</a>
+								<ul class="dropdown-menu sub-menu">
+									<li><a href="index.php?p=home&c=resource&a=jumpVideo">视频资源</a></li>
+									<li><a href="index.php?p=home&c=resource&a=jumpNodes">笔记</a></li>
+									<li><a href="index.php?p=home&c=resource&a=jumpBooks">书籍推荐</a></li>
+								</ul>
+							</li>
+
+							<li class="dropdown">
+								<a href="index.php?p=home&c=activity&a=jumpActivity" class="dropdown-toggle" data-hover="dropdown">活动广场</a>
+								<ul class="dropdown-menu sub-menu">
+									<li><a href="index.php?p=home&c=activity&a=jumpMatch">比赛</a></li>
+									<li><a href="index.php?p=home&c=activity&a=jumpTrain">培训</a></li>
+									<li><a href="index.php?p=home&c=activity&a=jumpSituation">最新动态</a></li>
+								</ul>
+							</li>
+							<!--<li class="dropdown">
+								<a href="index.php?p=home&c=word&a=jumpWord" class="dropdown-toggle" data-hover="dropdown" >会员留言</a>
+							</li>-->
+							<li class="dropdown">
+								<a href="index.php?p=home&c=index&a=jumpOur" class="dropdown-toggle" data-hover="dropdown">关于我们</a>
+							</li>
+							<li class="dropdown">
+								<a href="index.php?p=home&c=index&a=jumpLink" class="dropdown-toggle" data-hover="dropdown">联系我们</a>
+							</li>
+							<li class="dropdown">
+								<a href="index.php?p=home&c=user&a=jumpUser" class="dropdown-toggle" data-hover="dropdown">个人中心</a>
+								<ul class="dropdown-menu sub-menu">
+									<li><a href="index.php?p=home&c=user&a=jumpLogin">登录</a></li>
+									<li><a href="index.php?p=home&c=user&a=jumpJoin">加入我们</a></li>
+									<li><a href="index.php?p=home&c=user&a=jumpMessage">消息</a></li>
+									<li><a href="index.php?p=home&c=user&a=jumpBlog">博客</a></li>
+								</ul>
+							</li>
+			        	</ul> <!-- end menu -->
+			        </div> <!-- end collapse -->    
+	      		</div> <!-- end container -->
+	      	</nav> <!-- end navigation -->
+	    </nav> <!-- End Navbar -->
+	</header>
+
+
+	<div class="main-wrapper">
+		<!-- Page Title -->
+		<section id="page-title">
+			<div class="container clearfix">
+				<h1>关于我们</h1>
+				<ol class="breadcrumb">
+					<a href="index.php" >首页</a> > <a href="index.php?p=home&c=index&a=jumpOur" >关于我们</a> >
+				</ol> <!-- end breadcrumbs -->
+			</div> <!-- end container -->
+		</section> <!-- end page title -->
+
+		<section class="about-us-intro">
+			<div class="container-fluid">
+				<div class="row">
+
+					<div class="col-md-6 oh">
+						<img alt="" style="padding-left: 15px" src="public/22vd/upload/about_us_intro.jpg" >
+					</div> <!-- end col -->
+
+					<div class="col-md-6">
+						<div class="about-intro">
+							<h2>创客云-建站资源共享学习平台</h2>
+							<p class="subheading mt20">
+								www.22vd.com
+							</p>
+							<p class="mt20">
+								 创客云（www.22vd.com）专业提供网站模板，网页模板，网站源码，网站素材，网页特效等网页设计素材免费下载。我们致力于打造一个优秀的建站资源共享学习平台。创客云已经上路，我们将为此不懈努力，期待得到您的支持！<br />从零开始系统全面的教你如何建立一个属于自己的网站并实现盈利。课程涉及网站搭建，网站SEO，模板开发等最新建站技术
+							</p>
+							<ul>
+								<li><i class="icon icon_box-checked"></i>模板行业第一分享平台</li>
+								<li><i class="icon icon_box-checked"></i>系统全面的建站视频教程</li>
+								<li><i class="icon icon_box-checked"></i>7x24小时全方位技术支持</li>
+							</ul>
+						</div>						
+					</div> <!-- end col -->
+					
+				</div> <!-- end row -->
+			</div> <!-- end container -->
+		</section>
+
+
+		<section class="section-wrap testimonials-slider">
+			<div class="container">
+				<h2 class="heading-white text-center">客户评价</h2>
+				<div id="owl-testimonials" class="owl-carousel owl-theme">
+
+					<div class="item">
+						<img style="width: 70px; height: 80px" src="public/22vd/upload/testimonials_img_2.jpg" class="testimonials-img" alt="testimonials-img-1">
+						<div class="testimonials-box text-center">
+							<h5 class="testimonial-name">ACM协会会长</h5>
+							<span>张丹成</span>
+							<p>在网上寻觅了很久很久。终于找到了这里。晃眼一看，好多漂亮的模板。下载了几个都很好用。希望越做越好，多提供些精品资源！</p>
+						</div>
+					</div> <!-- end first testimonial -->
+
+					<div class="item">
+						<img style="width: 70px; height: 80px" src="public/22vd/upload/testimonials_img_5.jpg" class="testimonials-img" alt="testimonials-img-2">
+						<div class="testimonials-box text-center">
+							<h5 class="testimonial-name">ACM协会副会长</h5>
+							<span>李俊材</span>
+							<p>找了好久啊，一直想有一个这样的网站，找来找去，老感觉么有合适的。偶然间来到这儿，爽。找到啦！支持创客云！</p>
+						</div>
+					</div> <!-- end second testimonial -->
+
+					<div class="item">
+						<img style="width: 70px; height: 80px" src="public/22vd/upload/testimonials_img_3.jpg" class="testimonials-img" alt="testimonials-img-3">
+						<div class="testimonials-box text-center">
+							<h5 class="testimonial-name">ACM协会副会长</h5>
+							<span>莫恩哲</span>
+							<p>创客云对于网站建设新手来说，是一个最好的平台，你可以随心找到你最喜欢的网站模板，做出你喜欢的网站。</p>
+						</div>
+					</div> <!-- end third testimonial -->
+
+					<div class="item">
+						<img style="width: 70px; height: 80px" src="public/22vd/upload/testimonials_img_6.jpg" class="testimonials-img" alt="testimonials-img-4">
+						<div class="testimonials-box text-center">
+							<h5 class="testimonial-name">ACM协会秘书处长</h5>
+							<span>吴欣怡</span>
+							<p>找模板找了很久了，于是找到了创客云，觉的这里的模板很不错，下载了两套试试，果然可以用。于是充值了，希望站长以后多多指点啊！</p>
+						</div>
+					</div> <!-- end fourth testimonial -->
+
+					<div class="item">
+						<img style="width: 70px; height: 80px" src="public/22vd/upload/testimonials_img_7.jpg" class="testimonials-img" alt="testimonials-img-5">
+						<div class="testimonials-box text-center">
+							<h5 class="testimonial-name">ACM协会语言部部长</h5>
+							<span>齐德涵</span>
+							<p>热爱算法和编程，C/C++，Java，python等语言都有涉猎，但没有专精，喜欢接触新事物，研究新知识。</p>
+						</div>
+					</div> <!-- end fifth testimonial -->
+
+					<div class="item">
+						<img style="width: 70px; height: 80px" src="public/22vd/upload/testimonials_img_7.jpg" class="testimonials-img" alt="testimonials-img-5">
+						<div class="testimonials-box text-center">
+							<h5 class="testimonial-name">ACM协会技术部部长</h5>
+							<span>秦博</span>
+							<p>热爱算法和编程，C/C++，Java，python等语言都有涉猎，但没有专精，喜欢接触新事物，研究新知识。</p>
+						</div>
+					</div> <!-- end fifth testimonial -->
+
+					<div class="item">
+						<img style="width: 70px; height: 80px" src="public/22vd/upload/testimonials_img_7.jpg" class="testimonials-img" alt="testimonials-img-5">
+						<div class="testimonials-box text-center">
+							<h5 class="testimonial-name">ACM协会组织部部长</h5>
+							<span>周海颂</span>
+							<p>热爱算法和编程，C/C++，Java，python等语言都有涉猎，但没有专精，喜欢接触新事物，研究新知识。</p>
+						</div>
+					</div> <!-- end fifth testimonial -->
+
+					<div class="item">
+						<img style="width: 70px; height: 80px" src="public/22vd/upload/testimonials_img_7.jpg" class="testimonials-img" alt="testimonials-img-5">
+						<div class="testimonials-box text-center">
+							<h5 class="testimonial-name">ACM协会宣传部部长</h5>
+							<span>郭海华</span>
+							<p>热爱算法和编程，C/C++，Java，python等语言都有涉猎，但没有专精，喜欢接触新事物，研究新知识。</p>
+						</div>
+					</div> <!-- end fifth testimonial -->
+
+					<div class="item">
+						<img style="width: 70px; height: 80px" src="public/22vd/upload/testimonials_img_7.jpg" class="testimonials-img" alt="testimonials-img-5">
+						<div class="testimonials-box text-center">
+							<h5 class="testimonial-name">ACM协会外联部部长</h5>
+							<span>胡彪</span>
+							<p>热爱算法和编程，C/C++，Java，python等语言都有涉猎，但没有专精，喜欢接触新事物，研究新知识。</p>
+						</div>
+					</div> <!-- end fifth testimonial -->
+
+					<div class="item">
+						<img style="width: 70px; height: 80px" src="public/22vd/upload/testimonials_img_7.jpg" class="testimonials-img" alt="testimonials-img-5">
+						<div class="testimonials-box text-center">
+							<h5 class="testimonial-name">ACM协会财务部部长</h5>
+							<span>郭海华</span>
+							<p>热爱算法和编程，C/C++，Java，python等语言都有涉猎，但没有专精，喜欢接触新事物，研究新知识。</p>
+						</div>
+					</div> <!-- end fifth testimonial -->
+
+				</div> <!-- end owl carousel-->
+			</div> <!-- end container -->
+		</section> <!-- end testimonials -->
+
+		<!-- Results -->
+		<section class="results">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3 text-center">
+					<div class="statistic">
+						<span class="timer" data-from="0" data-to="<?php echo $userNum; ?>"></span>
+						<h5 class="counter-text">会员</h5>
+					</div>
+				</div> <!-- end col -->
+
+				<div class="col-sm-3 text-center">
+					<div class="statistic">
+						<span class="timer" data-from="0" data-to="<?php echo $mohamedNum; ?>"></span>
+						<h5 class="counter-text">干事</h5>
+					</div>
+				</div> <!-- end col -->
+
+				<div class="col-sm-3 text-center">
+					<div class="statistic">
+						<span class="timer" data-from="0" data-to="509"></span>
+						<h5 class="counter-text">视频教程</h5>
+					</div>
+				</div> <!-- end col -->
+
+				<div class="col-sm-3 text-center">
+					<div class="statistic">
+						<span class="timer" data-from="0" data-to="<?php echo $teacherNum; ?>"></span>
+						<h5 class="counter-text">老师</h5>
+					</div>
+				</div> <!-- end col -->
+			</div> <!-- end row -->
+		</div> <!-- end container -->
+	</section> <!-- end results -->
+
+		<!-- 我们的特长 -->
+		<section class="section-wrap about-us-skills">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-5">
+					<h3 class="heading-white">JLJU_ACM</h3>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACM——Association for Computing Machinery，又名ICPC即国际大学生程序设计竞赛。吉林建筑大学ACM协会旨在提高同学们运用计算机知识来分析问题和编程的能力，鼓励更多人的参与、学习计算机编程，扩宽自身知识面，致力于打造一个优秀的计算机编程学习平台。
+					</p><br>
+
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从零基础的编程新人开始教你如何提高编程能力，在竞赛和考研时充分发挥编程优势。老师和学长将为大家系统的讲解编程知识，带领大家参加竞赛。遇到不会的知识点，可以互相讨论或及时请教老师。</p>
+				</div>
+
+				<div class="col-sm-7">
+					<div class="skills-progress dark">
+						<h6>语言 <span>85%</span></h6>
+						<div class="progress-dark meter orange">
+							<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="85" class="progress-bar" role="progressbar">
+								<span class="sr-only">85% Complete</span>
+							</div>
+						</div>
+
+						<h6>授课 <span>65%</span></h6>
+						<div class="progress-dark meter yellow">
+							<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="65" class="progress-bar" role="progressbar">
+								<span class="sr-only">65% Complete</span>
+							</div>
+						</div>
+
+						<h6>数据结构 <span>93%</span></h6>
+						<div class="progress-dark meter violet">
+							<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="93" class="progress-bar" role="progressbar">
+								<span class="sr-only">93% Complete</span>
+							</div>
+						</div>
+
+						<h6>算法 <span>90%</span></h6>
+						<div class="progress-dark meter blue" id="animated-skills">
+							<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="90" class="progress-bar" role="progressbar">
+								<span class="sr-only">90% Complete</span>
+							</div>
+						</div>
+					</div> <!-- end skills-->
+				</div> <!-- end col -->
+			</div> <!-- end row -->
+		</div> <!-- end container -->
+	</section> <!-- end about us / skills -->
+	
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="bottom-footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 text-center">
+							<div class="copyright">
+								Copyright &copy; JLJU_ACM 版权所有
+							</div>
+						</div> <!-- end col -->
+					</div> <!-- end row -->
+				</div> <!-- end container -->
+			</div> <!-- end bottom footer -->
+		</footer> 
+        
+
+		<div id="back-to-top">
+			<a href="#top"><i class="fa fa-angle-up"></i></a>
+		</div>
+		<!-- end footer -->
+	</div> <!-- end main-wrapper -->
+	
+
+	<!-- jQuery Scripts -->
+	<script src="public/22vd/js/jquery.min.js"></script>
+ 	<script type="text/javascript" src="public/22vd/js/lightbox.min.js"></script>
+	<script type="text/javascript" src="public/22vd/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="public/22vd/js/bootstrap-hover-dropdown.min.js"></script>
+	<script type="text/javascript" src="public/22vd/js/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="public/22vd/js/jquery.countTo.js"></script>
+	<script type="text/javascript" src="public/22vd/js/jquery.appear.js"></script>
+	<script type="text/javascript" src="public/22vd/js/plugins-scroll.js"></script>
+	<script type="text/javascript" src="public/22vd/js/isotope.pkgd.min.js"></script>
+	<script type="text/javascript" src="public/22vd/js/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="public/22vd/js/jquery.easypiechart.min.js"></script>
+	<script type="text/javascript" src="public/22vd/js/jquery.flexslider-min.js"></script>
+	<script type="text/javascript" src="public/22vd/js/imagesloaded.pkgd.min.js"></script>
+	<script src="public/22vd/js/wow.min.js"></script>
+
+	<!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
+	<script type="text/javascript" src="public/22vd/rs-plugin/js/jquery.themepunch.tools.min.js" ></script>
+	<script type="text/javascript" src="public/22vd/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+	<!-- Custom Theme JavaScript -->
+    <script src="public/22vd/js/scripts.js"></script>
+
+	<!-- Revolution Slider -->
+	<script type="text/javascript">
+				jQuery(document).ready(function() {
+					   jQuery('.tp-banner').revolution(
+						{
+							delay:9000,
+							startwidth:1170,
+							startheight:680,
+							hideThumbs:10,
+
+							navigationType:"bullet",							
+							navigationStyle:"preview1",
+
+							hideArrowsOnMobile:"on",
+							
+							touchenabled:"on",
+							onHoverStop:"on",
+							spinner:"spinner4"
+						});
+				});
+	</script>
+	  
+</body>
+</html>

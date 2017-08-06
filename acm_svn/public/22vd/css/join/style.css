@@ -1,0 +1,431 @@
+/*--
+	Author: W3layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+--*/
+
+
+
+
+
+/*-- Reset Code --*/
+
+	html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+	article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
+	ol,ul{list-style:none;padding:0;margin:0;}
+	blockquote,q{quotes:none;}
+	blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+	table{border-collapse:collapse;border-spacing:0;}
+	a{text-decoration:none;}
+	.txt-rt{text-align:right;}
+	.txt-lt{text-align:left;}
+	/*--  agileits-w3layouts --*/
+	.txt-center{text-align:center;}
+	.float-rt{float:right;}
+	.float-lt{float:left;}
+	.clear{clear:both;}
+	.pos-relative{position:relative;}
+	.pos-absolute{position:absolute;}
+	.vertical-base{vertical-align:baseline;}
+	.vertical-top{vertical-align:top;}
+	.underline{	padding-bottom:5px;	border-bottom:1px solid #eee;margin:0 0 20px 0;}
+	nav.vertical ul li{display:block;}
+	nav.horizontal ul li{display: inline-block;}
+	img{max-width:100%;}
+
+/*-- Reset Code --*/
+
+
+
+
+
+/*-- Index-Page-Styling --*/
+
+body {
+	background: url("../../images/bg.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	/*--  agileits-w3layouts --*/
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	font-family: 'Roboto', sans-serif;
+	text-align: center;
+}
+
+body a, body a:hover, input[type="button"], input[type="submit"], input[type="submit"]:hover, button, button:hover {
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-ms-transition: 0.5s all;
+	/*--  agileits-w3layouts --*/
+	text-decoration: none;
+}
+
+h1 {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 40px;
+	margin: 75px 0;
+	color: #FFF;
+}
+
+.agileitscontainerwthree {
+	width: 75%;
+	margin: 0 auto;
+}
+
+fieldset fieldset legend, legend.section-title {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 20px;
+	/*--  agileits-w3layouts --*/
+	text-align: left;
+	color: #FFF;
+	margin-bottom: 10px;
+}
+
+.form-group {
+	text-align: left;
+}
+
+.row legend {
+	margin-left: 15px;
+}
+
+.submit {
+	margin-top: 25px;
+}
+
+.jumbotron ul {
+	font-size: .75em;
+}
+
+#progress-bar-wrap {
+	min-height: 20px;
+	display: none;
+	margin-bottom: 0;
+}
+
+#progress-bar-wrap .encouragement {
+	display: none;
+}
+
+#progress-bar-wrap .close:before {
+	content: "\f0d7";
+	display: inline-block;
+	font-family: FontAwesome;
+	/*--  agileits-w3layouts --*/
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+#progress-bar-wrap span {
+	line-height: 1.75em;
+}
+
+#progress-bar-wrap.collapsed h4 {
+	font-size: 14px;
+	color: #999999;
+}
+
+#progress-bar-wrap.collapsed .encouragement {
+	display: none;
+}
+
+#progress-bar-wrap.collapsed .progress {
+	display: none;
+}
+
+#progress-bar-wrap.collapsed .close:before {
+	content: "\f0d8";
+	display: inline-block;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	line-height: .75em;
+	/*--  agileits-w3layouts --*/
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+label {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 14px;
+	color: #CCC;
+	margin-bottom: 5px;
+}
+
+.label {
+	padding: 0px;
+	font-weight: 100;
+}
+
+.label-info {
+	background-color: #009688;
+}
+
+.form-control {
+	padding: 12px;
+	font-size: 13px;
+	color: #FFF;
+	/*--  agileits-w3layouts --*/
+	background-color: rgba(0, 0, 0, 0.7);
+	border: 1px solid #777;
+	border-radius: 0;
+	box-shadow: none;
+	height: inherit;
+	line-height: 0;
+}
+
+fieldset {
+	text-align: left;
+}
+
+fieldset fieldset fieldset legend {
+	font-size: 13px;
+	margin-bottom: 5px;
+}
+
+button.btn-primary {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	color: #fff;
+	padding: 7px 30px;
+	/*--  agileits-w3layouts --*/
+	background-color: #000;
+	border-color: #FFF;
+	border-radius: 0;
+}
+
+button.btn.btn-lg.btn-primary.submit:hover {
+	background-color: #009688;
+	border-color: #009688;
+}
+
+.navbar-default {
+	background-color: #F5F5F5;
+	border-color: #2196F3;
+	height: 100px;
+}
+
+h4 {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 18px;
+	margin-top: 20px;
+}
+
+.progress {
+	margin-top: 20px;
+	margin-bottom: 0;
+	/*--  agileits-w3layouts --*/
+	background-color: #333;
+}
+
+.progress-bar-info {
+	background-color: #009688;
+}
+
+::-webkit-input-placeholder {
+	color: #FFF!important;
+}
+
+::-moz-placeholder {
+	color: #FFF!important;
+}
+
+::-moz-placeholder {
+	color: #FFF!important;
+}
+
+::-ms-input-placeholder {
+	color: #FFF!important;
+}
+
+.w3lsfooteragileits {
+	margin: 50px 10px 150px;
+}
+
+.w3lsfooteragileits p {
+	font-size: 15px;
+	line-height: 25px;
+	color: #CCC;
+}
+
+.w3lsfooteragileits p a {
+	font-family: 'Montserrat', sans-serif;
+	color: #CCC;
+}
+
+.w3lsfooteragileits p a:hover {
+	color: #FFF;
+}
+
+/*-- Index-Page-Styling --*/
+
+
+
+
+
+
+
+
+
+
+/*-- Responsive-Code --*/
+
+
+
+
+
+@media screen and (max-width: 1920px) {
+	.agileitscontainerwthree {
+		width: 50%;
+	}
+}
+
+@media screen and (max-width: 1680px) {
+	.agileitscontainerwthree {
+		width: 60%;
+	}
+}
+
+@media screen and (max-width: 1600px) {
+	.agileitscontainerwthree {
+		width: 70%;
+	}
+}
+
+@media screen and (max-width: 1366px) {
+	h1 {
+		margin: 50px 0;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.agileitscontainerwthree {
+		width: 75%;
+	}
+}
+
+@media screen and (max-width: 991px) {
+	.form-group.col-md-4 {
+		width: 33.3%;
+		float: left;
+	}
+	.form-group.col-md-6 {
+		width: 50%;
+		float: left;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.agileitscontainerwthree {
+		width: 80%;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	h1 {
+		margin: 40px 0;
+	}
+	.agileitscontainerwthree {
+		width: 65%;
+	}
+	.form-group {
+		margin-bottom: 10px;
+		/*--  agileits-w3layouts --*/
+	}
+	.form-group.col-md-4 {
+		width: 100%;
+	}
+	.form-group.col-md-6 {
+		width: 100%;
+	}
+	fieldset fieldset legend, legend.section-title {
+		font-size: 18px;
+	}
+	label {
+		font-size: 13px;
+	}
+}
+
+@media screen and (max-width: 736px) {
+	h1 {
+		font-size: 35px;
+		margin: 35px 0;
+	}
+	.form-control {
+		padding: 10px;
+	}
+}
+
+@media screen and (max-width: 568px) {
+	button.btn-primary {
+		font-size: 14px;
+	}
+	.w3lsfooteragileits p {
+		font-size: 14px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	h4 {
+		font-size: 16px;
+	}
+}
+
+@media screen and (max-width: 414px) {
+	h1 {
+		font-size: 30px;
+		margin: 25px 0;
+	}
+	.agileitscontainerwthree {
+		width: 80%;
+	}
+	fieldset fieldset legend, legend.section-title {
+		margin-bottom: 7px;
+	}
+	.navbar-default {
+		height: 120px;
+	}
+	.progress {
+		height: 15px;
+	}
+}
+
+@media screen and (max-width: 384px) {
+	h1 {
+		font-size: 28px;
+	/*--  agileits-w3layouts --*/
+	}
+}
+
+@media screen and (max-width: 320px) {
+	h1 {
+		font-size: 26px;
+	}
+	.agileitscontainerwthree {
+		width: 90%;
+	}
+	fieldset fieldset legend, legend.section-title {
+		font-size: 16px;
+	}
+	label {
+		font-size: 12px;
+	}
+	.w3lsfooteragileits p {
+		font-size: 13px;
+	}
+}
+
+
+
+
+
+/*-- //Responsive-Code --*/

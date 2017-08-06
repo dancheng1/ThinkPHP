@@ -1,0 +1,21 @@
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
+<form enctype="multipart/form-data" action="index.php?p=admin&c=index&a=resTest" method="post">
+	<input type="file" name="goods_img" size="35">
+
+	<input type="submit" value="上传文件">
+</form>
+
+
+
+
+<!--<form enctype="multipart/form-data" action="index.php?p=admin&c=index&a=resTest" method="post">
+	<input type="hidden" name="MAX_FILE_SIZE" value="1000">
+	<input name="myFile" type="file">
+	<input type="submit" value="上传文件">
+</form>-->
+</body>
+</html>

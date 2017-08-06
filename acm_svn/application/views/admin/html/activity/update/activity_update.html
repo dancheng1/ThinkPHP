@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title></title>
+    <link href="application/views/admin/styles/general.css" rel="stylesheet" type="text/css" />
+    <link href="application/views/admin/styles/main.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="application/views/admin/js/utils.js"></script>
+    <script type="text/javascript" src="application/views/admin/js/selectzone.js"></script>
+    <script type="text/javascript" src="application/views/admin/js/colorselector.js"></script>
+    <script type="text/javascript" src="application/views/admin/js/calendar.php?lang="></script>
+</head>
+<body>
+<h1>
+    <span class="action-span"><a href="index.php?p=admin&c=activity&a=findAll">人员列表</a></span>
+    <span class="action-span1"><a href="index.php?p=admin&c=index&a=main">ACM后台系统 </a> </span>
+    <span class="action-span1"><a href="index.php?p=admin&c=activity&a=findAll"> - 人员列表 </a> </span>
+    <span id="search_id" class="action-span1"> - 修改信息 </span>
+    <div style="clear:both"></div>
+</h1>
+
+<div class="tab-div">
+    <!-- tab body -->
+    <div id="tabbody-div">
+        <form enctype="multipart/form-data" action="index.php?p=admin&c=activity&a=Update" method="post" name="theForm">
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
+            <!-- 通用信息 -->
+            <table width="90%" id="general-table" align="center" style="display: table;">
+                <tbody>
+                <tr>
+                    <td class="label">活动名称：</td>
+                    <td><input type="text" name="title" value="<?php echo $activity['title']; ?>" size="20"></td>
+                </tr>
+                <tr>
+                    <td class="label">创建人：</td>
+                    <td><input type="text" name="creator" value="<?php echo $activity['creator']; ?>" size="20"><br></td>
+                </tr>
+                <tr>
+                    <td class="label">活动开始时间：</td>
+                    <td><input type="text" name="utime" value="<?php echo $activity['utime']; ?>" size="20"><br></td>
+                </tr>
+                <tr>
+                    <td class="label">活动地址：</td>
+                    <td><input type="text" name="address" value="<?php echo $activity['address']; ?>" size="20"><br></td>
+                </tr>
+                <tr>
+                    <td class="label">联系方式：</td>
+                    <td><input type="text" name="contact" value="<?php echo $activity['contact']; ?>" size="20"><br></td>
+                </tr>
+                <tr>
+                    <td class="label">类别：</td>
+                    <td>
+                        <select name="parent">
+                            <option value="1" <?php if($activity['parent'] == 1) echo 'selected="selected"'; ?>>比赛活动</option>
+                            <option value="2" <?php if($activity['parent'] == 2) echo 'selected="selected"'; ?>>培训活动</option>
+                        </select>
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">摘要：</td>
+                    <td>
+                        <textarea style="width: 200px; height: 70px;" type="text" name="abstract" value="<?php echo $activity['abstract']; ?>" size="20" ></textarea>
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">详细描述：</td>
+                    <td>
+                        <textarea style="width: 200px; height: 70px;" type="text" name="content" value="<?php echo $activity['content']; ?>" size="20" ></textarea>
+                        <br>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="button-div">
+                <input type="submit" value="修改" class="button">
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div id="footer">
+    版权所有 &copy; 2012-2013 dancheng
+</div>
+<script type="text/javascript" src="application/views/admin/js/tab.js"></script>
+<script type="text/javascript">
+    function addImg(obj){
+        var src  = obj.parentNode.parentNode;
+        var idx  = rowindex(src);
+        var tbl  = document.getElementById('gallery-table');
+        var row  = tbl.insertRow(idx + 1);
+        var cell = row.insertCell(-1);
+        cell.innerHTML = src.cells[0].innerHTML.replace(/(.*)(addImg)(.*)(\[)(\+)/i, "$1removeImg$3$4-");
+    }
+
+    function removeImg(obj){
+        var row = rowindex(obj.parentNode.parentNode);
+        var tbl = document.getElementById('gallery-table');
+        tbl.deleteRow(row);
+    }
+
+    function dropImg(imgId){
+        Ajax.call('goods.php?is_ajax=1&act=drop_image', "img_id="+imgId, dropImgResponse, "GET", "JSON");
+    }
+
+    function dropImgResponse(result){
+        if (result.error == 0){
+            document.getElementById('gallery_' + result.content).style.display = 'none';
+        }
+    }
+
+    //注册change事件，发出请求
+    function getAttrList(type_id){
+        //获取iframe
+        var ifr = document.getElementById("ifr1");
+        //设置iframe的src
+        ifr.src = "index.php?p=admin&c=attribute&a=getAttrs&type_id="+type_id;
+    }
+</script>
+</body>
+</html>

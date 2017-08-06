@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title></title>
+    <link href="application/views/admin/tyles/general.css" rel="stylesheet" type="text/css" />
+    <link href="application/views/admin/styles/main.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h1>
+    <span class="action-span"><a href="index.php?p=admin&c=user&a=jumpAdd">添加会员</a></span>
+    <span class="action-span1"><a href="index.php?p=admin&c=index&a=main">ACM后台系统</a> </span>
+    <span class="action-span1"><a href="index.php?p=admin&c=user&a=All"> - 人员列表 </a> </span>
+    <span id="search_id" class="action-span1"> - 超级会员 </span>
+    <div style="clear:both"></div>
+</h1>
+
+<div class="form-div">
+    <form action="" name="searchForm">
+        <img src="application/views/admin/images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" onclick="">
+        <input type="button" value="超级会员" class="button" onclick="location.href='index.php?p=admin&c=user&a=superMember'">
+        <input type="button" value="干事校队" class="button" onclick="location.href='index.php?p=admin&c=user&a=mohamed'">
+        <input type="button" value="学长学姐" class="button" onclick="location.href='index.php?p=admin&c=user&a=senior'">
+        <input type="button" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;老师&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" class="button" onclick="location.href='index.php?p=admin&c=user&a=teacher'">
+        <input type="button" value="全体成员" class="button" onclick="location.href='index.php?p=admin&c=user&a=All'">
+        <input type="button" value="&nbsp;&nbsp;未审核&nbsp;&nbsp;" class="button" onclick="location.href='index.php?p=admin&c=user&a=Examine'">
+        <input type="button" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;会员&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" class="button" onclick="location.href='index.php?p=admin&c=user&a=member'">
+    </form>
+</div>
+
+<form method="post" action="" name="listForm" onsubmit="return confirmSubmit(this)">
+    <!-- start goods list -->
+    <div class="list-div" id="listDiv">
+        <table cellpadding="3" cellspacing="1">
+            <tbody>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>学校</th>
+                <th>学院</th>
+                <th>系别</th>
+                <th>账号状态</th>
+            </tr>
+            <tr></tr>
+            <?php
+				foreach($users as $user):
+				?>
+            <tr>
+                <td align="center" class="first-cell"><span><?php echo $user['acm_name']; ?></span></td>
+                <td align="center"><span><?php echo $user['acm_sex']; ?></span></td>
+                <td align="center"><span><?php echo $user['acm_school']; ?></span></td>
+                <td align="center"><span onclick=""><?php echo $user['acm_college']; ?></span></td>
+                <td align="center"><span onclick=""><?php echo $user['acm_system']; ?></span></td>
+                <td align="center"><span onclick=""><?php echo $user['acm_position']; ?></span></td>
+                <td align="center">
+                    <a href="index.php?p=admin&c=user&a=jumpEdit&id=<?php echo $user['id']; ?>" title="查看"><img src="application/views/admin/images/icon_view.gif" width="16" height="16" border="0"></a>
+                    <a href="index.php?p=admin&c=user&a=jumpUpdate&id=<?php echo $user['id']; ?>" title="修改"><img src="application/views/admin/images/icon_edit.gif" width="16" height="16" border="0"></a>
+                    <?php $user_id = $user['id']; ?>
+                    <a href="javascript:;" onclick="if(confirm('您确实要删除这个会员吗？'))  location.href='index.php?p=admin&c=user&a=dele&id=<?php echo $user_id; ?>'" title="回收站"><img src="application/views/admin/images/icon_trash.gif" width="16" height="16" border="0"></a>
+                </td>
+            </tr>
+            <?php
+				endforeach;
+				?>
+            </tbody>
+        </table>
+        <?php echo $pageinfo;?>
+    </div>
+</form>
+
+<div id="footer">
+    版权所有 &copy; 2017 07 29 by dancheng
+</div>
+
+</body>
+</html>

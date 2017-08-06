@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title></title>
+    <link href="application/views/admin/styles/general.css" rel="stylesheet" type="text/css" />
+    <link href="application/views/admin/styles/main.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="application/views/admin/js/utils.js"></script>
+    <script type="text/javascript" src="application/views/admin/js/selectzone.js"></script>
+    <script type="text/javascript" src="application/views/admin/js/colorselector.js"></script>
+    <script type="text/javascript" src="application/views/admin/js/calendar.php?lang="></script>
+</head>
+<body>
+<h1>
+    <span class="action-span"><a href="index.php?p=admin&c=activity&a=findAll">活动列表</a></span>
+    <span class="action-span1"><a href="index.php?p=admin&c=index&a=main">ACM后台系统 </a> </span>
+    <span class="action-span1"><a href="index.php?p=admin&c=activity&a=findAll"> - 活动列表 </a> </span>
+    <span id="search_id" class="action-span1"> - 详细信息 </span>
+    <div style="clear:both"></div>
+</h1>
+
+<div class="tab-div">
+    <!-- tab body -->
+    <div id="tabbody-div">
+        <input type="hidden" name="MAX_FILE_SIZE" value="2097152">
+        <!-- 通用信息 -->
+        <table width="90%" id="general-table" align="center" style="display: table;">
+            <tbody>
+            <tr>
+                <td class="label">活动名：</td>
+                <td><?php echo $activity['title']; ?><br/></td>
+            </tr>
+            <tr>
+                <td class="label">创建者：</td>
+                <td><?php echo $activity['creator']; ?><br></td>
+            </tr>
+            <tr>
+                <td class="label">创建时间：</td>
+                <td><?php echo date('Y-m-d H:i:s', $activity['createtime']); ?><br></td>
+            </tr>
+            <tr>
+                <td class="label">浏览量：</td>
+                <td><?php echo $activity['visit']; ?><br></td>
+            </tr>
+            <tr>
+                <td class="label">活动时间：</td>
+                <td><?php echo $activity['utime']; ?><br></td>
+            </tr>
+            <tr>
+                <td class="label">活动地址：</td>
+                <td><?php echo $activity['address']; ?><br></td>
+            </tr>
+            <tr>
+                <td class="label">联系方式：</td>
+                <td><?php echo $activity['contact']; ?><br></td>
+            </tr>
+            <tr>
+                <td class="label">类别：</td>
+                <td><?php
+                    if($activity['parent'] == 1){
+                        echo '比赛活动';
+                    } else {
+                        echo '培训活动';
+                    }
+                ?><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">摘要：</td>
+                <td><?php echo $activity['abstract']; ?><br></td>
+            </tr>
+            <tr>
+                <td class="label">详细描述：</td>
+                <td><?php echo $activity['content']; ?><br></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="button-div">
+            <?php $activity_id = $activity['id']; ?>
+            <input type="button" value="修改" class="button" onclick="location.href='index.php?p=admin&c=activity&a=jumpUpdate&id=<?php echo $activity_id ?>'">
+        </div>
+    </div>
+</div>
+
+
+<div id="footer">
+    版权所有 &copy; 2017 07 30 by dancheng
+</div>
+<script type="text/javascript" src="application/views/admin/js/tab.js"></script>
+<script type="text/javascript">
+    function addImg(obj){
+        var src  = obj.parentNode.parentNode;
+        var idx  = rowindex(src);
+        var tbl  = document.getElementById('gallery-table');
+        var row  = tbl.insertRow(idx + 1);
+        var cell = row.insertCell(-1);
+        cell.innerHTML = src.cells[0].innerHTML.replace(/(.*)(addImg)(.*)(\[)(\+)/i, "$1removeImg$3$4-");
+    }
+
+    function removeImg(obj){
+        var row = rowindex(obj.parentNode.parentNode);
+        var tbl = document.getElementById('gallery-table');
+        tbl.deleteRow(row);
+    }
+
+    function dropImg(imgId){
+        Ajax.call('goods.php?is_ajax=1&act=drop_image', "img_id="+imgId, dropImgResponse, "GET", "JSON");
+    }
+
+    function dropImgResponse(result){
+        if (result.error == 0){
+            document.getElementById('gallery_' + result.content).style.display = 'none';
+        }
+    }
+
+</script>
+</body>
+</html>

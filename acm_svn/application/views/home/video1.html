@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple Video Widget Flat Responsive Widget Template :: w3layouts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Simple Video Widget template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free Web designs for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="public/video1/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+<!-- web font -->
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'><!--web font-->
+<!-- //web font --> 
+</head>
+<body>
+	<!-- agileits-main -->
+	<div class="agileits-main">
+		<h1>JLJU_ACM ASSOCIATION</h1>
+		<div class="wthree-row"> 
+			<video id="html5"
+				   controls preload='none'
+				   mediagroup='myVideoGroup'
+				   poster="images/2.jpg">
+				<source id="mp4"
+						src="public/video1/video/music.mp4"
+						type='video/mp4'> 
+				<p>Your user agent does not support the HTML5 Video element.</p>
+			</video>
+			<div class="clear"> </div>
+			<script src="public/video1/js/jquery-3.1.0.min.js"></script>
+			<script src="public/video1/js/lightsoff.js"></script>
+			<script>
+				var videoSelector = $('#html5');
+				// Initialize with some custom config
+				videoSelector.lightsOff({
+					color: '#2196F3',
+					switchSelector: '#switch-button',
+					durationLightsOff: 1000,
+					durationLightsOn: 1000,
+					allowScrolling: true
+				});
+
+				videoSelector.on('play playing', function() {
+					videoSelector.lightsOff('show');
+				});
+				videoSelector.on('pause ended', function() {
+					videoSelector.lightsOff('hide');
+				});
+
+				// Pause video when the overlay hidden (usually when the user clicks the overlay itself)
+				$(document).on('lightsOn', function() {
+					videoSelector.get(0).pause()
+				});
+			</script>	
+		</div>	
+	</div>	
+	<!-- //agileits-main -->
+	<!-- copyright -->
+	<div class="copyright">
+		<p>© 2017-08-05 by 胡彪</p>
+	</div>
+	<!-- //copyright --> 
+</body>
+</html>

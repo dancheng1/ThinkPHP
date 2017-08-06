@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title></title>
+    <link href="application/views/admin/styles/general.css" rel="stylesheet" type="text/css" />
+    <link href="application/views/admin/styles/main.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="application/views/admin/js/utils.js"></script>
+    <script type="text/javascript" src="application/views/admin/js/selectzone.js"></script>
+    <script type="text/javascript" src="application/views/admin/js/colorselector.js"></script>
+    <script type="text/javascript" src="application/views/admin/js/calendar.php?lang="></script>
+</head>
+<body>
+<h1>
+    <span class="action-span"><a href="index.php?p=admin&c=user&a=All">人员列表</a></span>
+    <span class="action-span1"><a href="index.php?p=admin&c=index&a=main">ACM后台系统 </a> </span>
+    <span class="action-span1"><a href="index.php?p=admin&c=user&a=All"> - 人员列表 </a> </span>
+    <span id="search_id" class="action-span1"> - 添加会员 </span>
+    <div style="clear:both"></div>
+</h1>
+
+<div class="tab-div">
+    <!-- tab body -->
+    <div id="tabbody-div">
+        <form enctype="multipart/form-data" action="index.php?p=admin&c=user&a=testJoin" method="post" name="theForm">
+            <input type="hidden" name="MAX_FILE_SIZE" value="2097152">
+            <!-- 通用信息 -->
+            <table width="90%" id="general-table" align="center" style="display: table;">
+                <tbody>
+                <tr>
+                    <td class="label">账号：</td>
+                    <td><input type="text" name="acm_username" value="" size="20"></td>
+                </tr>
+                <tr>
+                    <td class="label">密码：</td>
+                    <td><input type="text" name="acm_password" value="" size="20"><br></td>
+                </tr>
+                <tr>
+                    <td class="label">QQ：</td>
+                    <td><input type="text" name="acm_qq" value="" size="20"><br></td>
+                </tr>
+                <tr>
+                    <td class="label">姓名：</td>
+                    <td><input type="text" name="acm_name" value="" size="20"><br></td>
+                </tr>
+                <tr>
+                    <td class="label">性别：</td>
+                    <td><input type="text" name="acm_sex" value="" size="20"><br></td>
+                </tr>
+                <tr>
+                    <td class="label">电话：</td>
+                    <td><input type="text" name="acm_tel" value="" size="20"><br></td>
+                </tr>
+                <tr>
+                    <td class="label">学校：</td>
+                    <td>
+                        <select name="acm_school" id="acm_school">
+                            <option value="吉林建筑大学" selected="selected">吉林建筑大学</option>
+                            <option value="吉林农业大学">吉林农业大学</option>
+                            <option value="长春工业大学">长春工业大学</option>
+                            <option value="长春工程学院">长春工程学院</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">学院：</td>
+                    <td>
+                        <select name="acm_college" id="acm_college">
+                            <option selected="selected" value="电气与计算机学院">电气与计算机学院</option>
+                            <option value="土木学院">土木学院</option>
+                            <option value="艺术学院">艺术学院</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">系别：</td>
+                    <td>
+                        <select name="acm_system" id="acm_system">
+                            <option selected="selected" value="软件工程">软件工程</option>
+                            <option value="网络工程">网络工程</option>
+                            <option value="计算机">计算机</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">班级：</td>
+                    <td><input type="text" name="acm_class" value="" size="20"><br></td>
+                </tr>
+                <tr>
+                    <td class="label">兴趣爱好：</td>
+                    <td>
+                        <textarea style="width: 200px; height: 70px;" type="text" name="acm_hobby" value="" size="20" ></textarea>
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">自我描述：</td>
+                    <td>
+                        <textarea style="width: 200px; height: 70px;" type="text" name="acm_self" value="" size="20" ></textarea>
+                        <br>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="button-div">
+                <input type="submit" value=" 确定 " class="button">
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div id="footer">
+    版权所有 &copy; 2012-2013 dancheng
+</div>
+<script type="text/javascript" src="application/views/admin/js/tab.js"></script>
+<script type="text/javascript">
+    function addImg(obj){
+        var src  = obj.parentNode.parentNode;
+        var idx  = rowindex(src);
+        var tbl  = document.getElementById('gallery-table');
+        var row  = tbl.insertRow(idx + 1);
+        var cell = row.insertCell(-1);
+        cell.innerHTML = src.cells[0].innerHTML.replace(/(.*)(addImg)(.*)(\[)(\+)/i, "$1removeImg$3$4-");
+    }
+
+    function removeImg(obj){
+        var row = rowindex(obj.parentNode.parentNode);
+        var tbl = document.getElementById('gallery-table');
+        tbl.deleteRow(row);
+    }
+
+    function dropImg(imgId){
+        Ajax.call('goods.php?is_ajax=1&act=drop_image', "img_id="+imgId, dropImgResponse, "GET", "JSON");
+    }
+
+    function dropImgResponse(result){
+        if (result.error == 0){
+            document.getElementById('gallery_' + result.content).style.display = 'none';
+        }
+    }
+
+    //注册change事件，发出请求
+    function getAttrList(type_id){
+        //获取iframe
+        var ifr = document.getElementById("ifr1");
+        //设置iframe的src
+        ifr.src = "index.php?p=admin&c=attribute&a=getAttrs&type_id="+type_id;
+    }
+</script>
+</body>
+</html>

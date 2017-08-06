@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head -->
+<head>
+    <title>Join us</title>
+    <!-- Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="Valid Address Form Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //Meta-Tags -->
+
+    <!-- Custom-Style-Sheet -->
+    <link rel="stylesheet" href="public/22vd/css/join/bootstrap.min.css"	type="text/css" media="all">
+    <link rel="stylesheet" href="public/22vd/css/join/style.css"			type="text/css" media="all">
+    <!-- //Custom-Style-Sheet -->
+
+    <!-- Fonts -->
+    <!--<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"		type="text/css" media="all">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700"					type="text/css" media="all">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"	type="text/css" media="all">-->
+    <!-- //Fonts -->
+</head>
+<!-- //Head -->
+
+<!-- Body -->
+<body>
+
+<h1>Join us</h1>
+<div class="agileitscontainerwthree">
+    <form id="test_form" action="index.php?p=home&c=user&a=testJoin" method="post">
+        <fieldset>
+            <legend class="section-title aits">Your Information</legend>
+            <div class="section agileinfo row">
+                <fieldset>
+                    <div class="form-group wthree col-md-4">
+                        <label class="control-label" for="first-name-1">Account Number(账号长度：4~16)</label>
+                        <input class="form-control" id="first-name-1" name="acm_username" value="<?php if(isset($data)) echo $data['acm_username']; ?>" type="text" maxlength="50" required>
+                    </div>
+                    <div class="form-group w3-agile col-md-4">
+                        <label class="control-label" for="initial-1">Password(密码长度：8~16)</label>
+                        <input class="form-control" id="initial-1" name="acm_password" value="<?php if(isset($data)) echo $data['acm_password']; ?>" type="password" maxlength="50" required>
+                    </div>
+                    <div class="form-group w3layouts col-md-4">
+                        <label class="control-label" for="last-name-1">QQ(QQ长度：4~13)</label>
+                        <input class="form-control" id="last-name-1" name="acm_qq" value="<?php if(isset($data)) echo $data['acm_qq']; ?>" type="text" maxlength="50" required>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="section agileinfo row">
+                <fieldset>
+                    <div class="form-group wthree col-md-4">
+                        <label class="control-label" for="first-name-1">Name(真实姓名长度：2~10)</label>
+                        <input class="form-control" id="first-name-1" name="acm_name" value="<?php if(isset($data)) echo $data['acm_name']; ?>" type="text" maxlength="50" required>
+                    </div>
+                    <div class="form-group w3-agile col-md-4">
+                        <label class="control-label" for="initial-1">Sex(性别)</label>
+                        <input class="form-control" id="initial-1" name="acm_sex" value="<?php if(isset($data)) echo $data['acm_sex']; ?>" type="text" maxlength="50" required>
+                    </div>
+
+                    <div class="form-group w3layouts col-md-4">
+                        <label class="control-label" for="last-name-1">Tel(电话长度：5~13)</label>
+                        <input class="form-control" id="last-name-1" name="acm_tel" value="<?php if(isset($data)) echo $data['acm_tel']; ?>" type="text" maxlength="50" required>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="section w3-agileits">
+                <fieldset>
+                    <legend>Academy</legend>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label class="control-label w3-agileits" for="state">School</label>
+                            <select class="form-control" id="state" name="acm_school" required>
+                                <option value="吉林建筑大学" selected="selected">吉林建筑大学</option>
+                                <option value="吉林农业大学">吉林农业大学</option>
+                                <option value="长春工业大学">长春工业大学</option>
+                                <option value="长春工程学院">长春工程学院</option>
+                                <option value="其他">其他</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="control-label" for="country">College</label>
+                            <select class="form-control" id="country" name="acm_college" required>
+                                <option selected="selected" value="电气与计算机学院">电气与计算机学院</option>
+                                <option value="土木学院">土木学院</option>
+                                <option value="艺术学院">艺术学院</option>
+                                <option value="其他">其他</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="control-label" for="country">System</label>
+                            <select class="form-control" id="country" name="acm_system" required>
+                                <option selected="selected" value="软件工程">软件工程</option>
+                                <option value="网络工程">网络工程</option>
+                                <option value="计算机">计算机</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="street-address">Class</label>
+                            <input class="form-control" id="street-address" name="acm_class" value="<?php if(isset($data)) echo $data['acm_class']; ?>" type="text" maxlength="200">
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="section w3-agileits">
+                <fieldset>
+                    <legend>Academy</legend>
+                    <div class="row">
+                        <div class="form-group">
+                            <label class="control-label" for="street-address">Hobbies and Specialities(兴趣及特长：255)</label>
+                            <input class="form-control" id="street-address" name="acm_hobby" value="<?php if(isset($data)) echo $data['acm_hobby']; ?>" type="text" maxlength="200">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="street-address">Self introduction(自我介绍:255)</label>
+                            <input class="form-control" id="street-address" name="acm_self" value="<?php if(isset($data)) echo $data['acm_self']; ?>" type="text" maxlength="200">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="control-label" for="country">Do you want to be a ACM officer?</label>
+                            <select class="form-control" id="country" name="acm_is_offer" required>
+                                <option selected="selected" value="1">yes</option>
+                                <option value="0">no</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="section">
+                <fieldset>
+                    <legend>Radios</legend>
+                    <fieldset>
+                        <legend>Are you human?</legend>
+                        <label for="yes" class="radio-inline">
+                            <input type="radio" id="yes" name="testRadio" required> Yes
+                        </label>
+                        <label for="no" class="radio-inline wthree">
+                            <input type="radio" id="no" name="testRadio"> No
+                        </label>
+                    </fieldset>
+                </fieldset>
+            </div>
+        </fieldset>
+        <div class="form-group w3-agile">
+            <button type="submit" value="Submit" class="btn btn-lg agile btn-primary submit">Join us</button>
+        </div>
+    </form>
+</div>
+
+<div class="w3lsfooteragileits">
+    <p> &copy; 2017 07 29 by dancheng</p>
+</div>
+
+
+
+<!-- Necessary-JavaScript-Files-&-Links -->
+
+<script src="public/22vd/js/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="public/22vd/js/jq.progress-bar.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#test_form').showProgress();
+    });
+</script>
+
+<!-- //Necessary-JavaScript-Files-&-Links -->
+
+
+
+</body>
+<!-- //Body -->
+
+
+
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title></title>
+    <link href="application/views/admin/styles/general.css" rel="stylesheet" type="text/css" />
+    <link href="application/views/admin/styles/main.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="application/views/admin/js/utils.js"></script>
+    <script type="text/javascript" src="application/views/admin/js/selectzone.js"></script>
+    <script type="text/javascript" src="application/views/admin/js/colorselector.js"></script>
+    <script type="text/javascript" src="application/views/admin/js/calendar.php?lang="></script>
+</head>
+<body>
+<h1>
+    <span class="action-span"><a href="index.php?p=admin&c=resource&a=showVideo&parent_parent=<?php echo $parent_parent; ?>">资源列表</a></span>
+    <span class="action-span1"><a href="index.php?p=admin&c=index&a=main">ACM后台系统 </a> </span>
+    <span class="action-span1"><a href="index.php?p=admin&c=resource&a=showVideo&parent_parent=<?php echo $parent_parent; ?>"> - 资源列表 </a> </span>
+    <span id="search_id" class="action-span1"> - 资源详情 </span>
+    <div style="clear:both"></div>
+</h1>
+
+<div class="tab-div">
+    <!-- tab body -->
+    <div id="tabbody-div">
+            <!-- 通用信息 -->
+            <table width="90%" id="general-table" align="center" style="display: table;">
+                <tbody>
+                <tr>
+                    <td class="label">名字：</td>
+                    <td><?php echo $resInfo['name']; ?></td>
+                </tr>
+                <tr>
+                    <td class="label">父类：</td>
+                    <td>
+                        <?php echo $parent; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">访问级别：</td>
+                    <td>
+                        <?php
+                            switch($resInfo['level']){
+                                case 1:echo '会员及以上';
+                                    break;
+                                case 2:echo '超级会员及以上';
+                                    break;
+                                case 3:echo '干事-校队及以上';
+                                    break;
+                                case 4:echo '学长-学姐及以上';
+                                    break;
+                                case 5:echo '老师及以上';
+                                    break;
+                            }
+                        ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">上传者：</td>
+                    <td><?php echo $resInfo['creator']; ?><br></td>
+                </tr>
+                <tr>
+                    <td class="label">下载链接：</td>
+                    <td><?php echo $resInfo['link']; ?><br></td>
+                </tr>
+                <tr>
+                    <td class="label">下载密码：</td>
+                    <td><?php echo $resInfo['password']; ?><br></td>
+                </tr>
+                <tr>
+                    <td class="label">摘要：</td>
+                    <td>
+                        <?php echo $resInfo['abstract']; ?><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">描述：</td>
+                    <td>
+                        <?php echo $resInfo['content']; ?>
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">第一个显示图片：</td>
+                    <td>
+                        <?php if(isset($resInfo['img_first_url'])){ ?>
+                        <img style="width: 400px; height: 400px" src="<?php echo $resInfo['img_first_url']; ?>"><br>
+                        <?php } else { ?>
+                        没有第一张图片
+                        <?php } ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">第二个图片：</td>
+                    <td>
+                        <?php if(isset($resInfo['img_second_url'])){ ?>
+                        <img style="width: 400px; height: 400px" src="<?php echo $resInfo['img_second_url']; ?>"><br>
+                        <?php } else { ?>
+                        没有第二张图片
+                        <?php } ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">第三个图片：</td>
+                    <td>
+                        <?php if(isset($resInfo['img_third_url'])){ ?>
+                        <img style="width: 400px; height: 400px" src="<?php echo $resInfo['img_third_url']; ?>"><br>
+                        <?php } else { ?>
+                        没有第三张图片
+                        <?php } ?>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="button-div">
+                <a href="index.php?p=admin&c=resource&a=jumpUpdate&id=<?php echo $resInfo['id']; ?>&parent_parent=<?php echo $parent_parent; ?>"> <input type="button" value="修改" class="button"></a>
+                <a href="index.php?p=admin&c=resource&a=jumpUpdateTupian&id=<?php echo $resInfo['id']; ?>&parent_parent=<?php echo $parent_parent; ?>&field='img_first_url'"><input type="button" value="修改图片" class="button"></a>
+            </div>
+    </div>
+</div>
+
+
+<div id="footer">
+    版权所有 &copy; 2012-2013 dancheng
+</div>
+<script type="text/javascript" src="application/views/admin/js/tab.js"></script>
+<script type="text/javascript">
+    function addImg(obj){
+        var src  = obj.parentNode.parentNode;
+        var idx  = rowindex(src);
+        var tbl  = document.getElementById('gallery-table');
+        var row  = tbl.insertRow(idx + 1);
+        var cell = row.insertCell(-1);
+        cell.innerHTML = src.cells[0].innerHTML.replace(/(.*)(addImg)(.*)(\[)(\+)/i, "$1removeImg$3$4-");
+    }
+
+    function removeImg(obj){
+        var row = rowindex(obj.parentNode.parentNode);
+        var tbl = document.getElementById('gallery-table');
+        tbl.deleteRow(row);
+    }
+
+    function dropImg(imgId){
+        Ajax.call('goods.php?is_ajax=1&act=drop_image', "img_id="+imgId, dropImgResponse, "GET", "JSON");
+    }
+
+    function dropImgResponse(result){
+        if (result.error == 0){
+            document.getElementById('gallery_' + result.content).style.display = 'none';
+        }
+    }
+
+    //注册change事件，发出请求
+    function getAttrList(type_id){
+        //获取iframe
+        var ifr = document.getElementById("ifr1");
+        //设置iframe的src
+        ifr.src = "index.php?p=admin&c=attribute&a=getAttrs&type_id="+type_id;
+    }
+</script>
+</body>
+</html>

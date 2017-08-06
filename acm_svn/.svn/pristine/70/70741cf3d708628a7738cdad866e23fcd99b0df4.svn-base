@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Member Message</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="www.22vd.com">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <link rel="stylesheet" type="text/css" href="public/22vd/css/bootstrap.min.css" media="screen">
+
+    <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+    <link rel="stylesheet" type="text/css" href="public/22vd/rs-plugin/css/settings.css" media="screen" />
+
+    <link rel="stylesheet" href="public/22vd/css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="public/22vd/css/lightbox.min.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="public/22vd/css/stroke-gap-icons.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="public/22vd/css/pe-icon-7-stroke.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="public/22vd/css/elegant-icons.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="public/22vd/css/font-awesome.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="public/22vd/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="public/22vd/css/responsive.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="public/22vd/rs-plugin/css/settings.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="public/22vd/css/animate.css"/>
+    <link rel="stylesheet" type="text/css" href="public/22vd/css/flexslider.css" media="screen" />
+
+    <link rel="shortcut icon" href="/public/22vd/upload/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/public/22vd/upload/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status">&nbsp;</div>
+</div>
+
+<header>
+    <!-- Navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <nav class="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- Logo -->
+                    <div class="logo">
+                        <a href="index.php">
+                            <img class="small-logo" src="public/22vd/upload/logo-dark.png" alt="logo">
+                        </a>
+                    </div>
+                </div> <!-- end navbar-header -->
+
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="index.php" class="dropdown-toggle" >网站首页</a>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="index.php?p=home&c=resource&a=junpResource" class="dropdown-toggle" data-hover="dropdown">资源共享</a>
+                            <ul class="dropdown-menu sub-menu">
+                                <li><a href="index.php?p=home&c=resource&a=jumpVideo">视频资源</a></li>
+                                <li><a href="index.php?p=home&c=resource&a=jumpNodes">笔记</a></li>
+                                <li><a href="index.php?p=home&c=resource&a=jumpBooks">书籍推荐</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="index.php?p=home&c=activity&a=jumpActivity" class="dropdown-toggle" data-hover="dropdown">活动广场</a>
+                            <ul class="dropdown-menu sub-menu">
+                                <li><a href="index.php?p=home&c=activity&a=jumpMatch">比赛</a></li>
+                                <li><a href="index.php?p=home&c=activity&a=jumpTrain">培训</a></li>
+                                <li><a href="index.php?p=home&c=activity&a=jumpSituation">最新动态</a></li>
+                            </ul>
+                        </li>
+                        <!--<li class="dropdown">
+                            <a href="index.php?p=home&c=word&a=jumpWord" class="dropdown-toggle" data-hover="dropdown" >会员留言</a>
+                        </li>-->
+                        <li class="dropdown">
+                            <a href="index.php?p=home&c=index&a=jumpOur" class="dropdown-toggle" data-hover="dropdown">关于我们</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="index.php?p=home&c=index&a=jumpLink" class="dropdown-toggle" data-hover="dropdown">联系我们</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="index.php?p=home&c=user&a=jumpUser" class="dropdown-toggle" data-hover="dropdown">个人中心</a>
+                            <ul class="dropdown-menu sub-menu">
+                                <li><a href="index.php?p=home&c=user&a=jumpLogin">登录</a></li>
+                                <li><a href="index.php?p=home&c=user&a=jumpJoin">加入我们</a></li>
+                                <li><a href="index.php?p=home&c=user&a=jumpMessage">消息</a></li>
+                                <li><a href="index.php?p=home&c=user&a=jumpBlog">博客</a></li>
+                            </ul>
+                        </li>
+                    </ul> <!-- end menu -->
+                </div> <!-- end collapse -->
+            </div> <!-- end container -->
+        </nav> <!-- end navigation -->
+    </nav> <!-- End Navbar -->
+</header>
+
+
+<div class="main-wrapper">
+
+    <!-- Page Title -->
+    <section id="page-title">
+        <div class="container clearfix">
+            <h1>分类资源</h1>
+            <ol class="breadcrumb">
+                <a href="index.php" >首页</a> > <a href="index.php?p=home&c=word&a=jumpByType" >分类资源</a> >
+            </ol> <!-- end breadcrumbs -->
+        </div> <!-- end container -->
+    </section> <!-- end page title -->
+
+    <section class="section-wrap testimonials-boxes bg-light">
+        <div class="container">
+            <h2 class="text-center">资源列表</h2>
+            <p class="subheading text-center">-------</p>
+            <div class="main-border blue"></div>
+
+            <?php foreach($resources as $resource): ?>
+            <div class="row mt20">
+                <div data-wow-delay="0.2" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s; animation-name: fadeIn;">
+                    <div class="testimonial-item">
+                        <div class="testimonials-box">
+                            <a href="<?php echo $resource['img_first_url']; ?>"><img style="width: 80px; height: 80px" alt="testimonials-img-1" class="testimonials-img" src="<?php echo $resource['img_first_url']; ?>"></a>
+                            <div class="testimonial">
+                                <h5 class="testimonial-name"><?php echo $resource['name']; ?></h5>
+                                <span>下载级别：
+                                <?php
+                                switch($resource['level']){
+                                    case 1:echo '会员及以上';
+                                        break;
+                                    case 2:echo '超级会员及以上';
+                                        break;
+                                    case 3:echo '干事-校队及以上';
+                                        break;
+                                    case 4:echo '学长-学姐及以上';
+                                        break;
+                                    case 5:echo '老师及以上';
+                                        break;
+                                }
+                                ?>
+                                </span>
+                                <p><?php echo $resource['abstract']; ?></p>
+                            </div>
+                            <?php $id = $resource['id']; ?>
+                            <div><input type="button" value="下载资源" onclick="location.href='index.php?p=home&c=resource&a=jumpEdit&id=<?php echo $id ?>'"></div>
+                        </div>
+                    </div> <!-- end first testimonial -->
+                </div> <!-- end col -->
+            </div> <!-- end row -->
+            <?php endforeach; ?>
+        </div>
+        <div class="dede_pages" style="margin-top:40px;">
+            <ul class="pagelist">
+                <?php echo $pageinfo ?>
+
+            </ul>
+        </div><!-- /pages -->
+    </section>
+</div>
+
+<!-- Footer -->
+<footer id="footer">
+    <div class="bottom-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <div class="copyright">
+                        Copyright &copy; JLJU_ACM 版权所有
+                    </div>
+                </div> <!-- end col -->
+            </div> <!-- end row -->
+        </div> <!-- end container -->
+    </div> <!-- end bottom footer -->
+</footer>
+
+
+<div id="back-to-top">
+    <a href="#top"><i class="fa fa-angle-up"></i></a>
+</div>
+
+<!-- end footer -->
+
+
+</div> <!-- end main-wrapper -->
+
+
+<!-- jQuery Scripts -->
+<script src="public/22vd/js/jquery.min.js" tppabs="http://dede02.va666.com/public/22vd/js/jquery.min.js"></script>
+<script type="text/javascript" src="public/22vd/js/lightbox.min.js" tppabs="http://dede02.va666.com/public/22vd/js/lightbox.min.js"></script>
+<script type="text/javascript" src="public/22vd/js/bootstrap.min.js" tppabs="http://dede02.va666.com/public/22vd/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="public/22vd/js/bootstrap-hover-dropdown.min.js" tppabs="http://dede02.va666.com/public/22vd/js/bootstrap-hover-dropdown.min.js"></script>
+<script type="text/javascript" src="public/22vd/js/owl.carousel.min.js" tppabs="http://dede02.va666.com/public/22vd/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="public/22vd/js/jquery.countTo.js" tppabs="http://dede02.va666.com/public/22vd/js/jquery.countTo.js"></script>
+<script type="text/javascript" src="public/22vd/js/jquery.appear.js" tppabs="http://dede02.va666.com/public/22vd/js/jquery.appear.js"></script>
+<script type="text/javascript" src="public/22vd/js/plugins-scroll.js" tppabs="http://dede02.va666.com/public/22vd/js/plugins-scroll.js"></script>
+<script type="text/javascript" src="public/22vd/js/isotope.pkgd.min.js" tppabs="http://dede02.va666.com/public/22vd/js/isotope.pkgd.min.js"></script>
+<script type="text/javascript" src="public/22vd/js/jquery.easing.min.js" tppabs="http://dede02.va666.com/public/22vd/js/jquery.easing.min.js"></script>
+<script type="text/javascript" src="public/22vd/js/jquery.easypiechart.min.js" tppabs="http://dede02.va666.com/public/22vd/js/jquery.easypiechart.min.js"></script>
+<script type="text/javascript" src="public/22vd/js/jquery.flexslider-min.js" tppabs="http://dede02.va666.com/public/22vd/js/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="public/22vd/js/imagesloaded.pkgd.min.js" tppabs="http://dede02.va666.com/public/22vd/js/imagesloaded.pkgd.min.js"></script>
+<script src="public/22vd/js/wow.min.js" tppabs="http://dede02.va666.com/public/22vd/js/wow.min.js"></script>
+
+<!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
+<script type="text/javascript" src="public/22vd/rs-plugin/js/jquery.themepunch.tools.min.js" tppabs="http://dede02.va666.com/public/22vd/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="public/22vd/rs-plugin/js/jquery.themepunch.revolution.min.js" tppabs="http://dede02.va666.com/public/22vd/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="public/22vd/js/scripts.js" tppabs="http://dede02.va666.com/public/22vd/js/scripts.js"></script>
+
+<!-- Revolution Slider -->
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        jQuery('.tp-banner').revolution(
+            {
+                delay:9000,
+                startwidth:1170,
+                startheight:680,
+                hideThumbs:10,
+
+                navigationType:"bullet",
+                navigationStyle:"preview1",
+
+                hideArrowsOnMobile:"on",
+
+                touchenabled:"on",
+                onHoverStop:"on",
+                spinner:"spinner4"
+            });
+    });
+</script>
+
+</body>
+</html>

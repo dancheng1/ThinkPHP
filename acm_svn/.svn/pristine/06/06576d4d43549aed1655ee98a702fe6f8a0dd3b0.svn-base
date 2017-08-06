@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title></title>
+    <link href="application/views/admin/tyles/general.css" rel="stylesheet" type="text/css" />
+    <link href="application/views/admin/styles/main.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h1>
+    <span class="action-span"><a href="index.php?p=admin&c=resource&a=jumpAddres&parent_parent=<?php echo $parent_parent; ?>">添加资源</a></span>
+    <span class="action-span1"><a href="index.php?p=admin&c=index&a=main">ACM后台系统</a> </span><span id="search_id" class="action-span1"> - 资源分类列表 </span>
+    <div style="clear:both"></div>
+</h1>
+
+<div class="form-div">
+    <form action="index.php?p=admin&c=resource&a=showVideo&parent_parent=<?php echo $parent_parent; ?>" method="post">
+        <img src="application/views/admin/images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" onclick="">
+        按
+        <select name="field" id="field">
+            <option value="name">名字</option>
+            <option value="parent_id">父分类</option>
+            <option value="creator">创建人</option>
+        </select>
+        <input type="text" value="" name="soso">
+        <input type="submit" value="查找">
+    </form>
+</div>
+
+<form method="post" action="" name="listForm" onsubmit="return confirmSubmit(this)">
+    <!-- start goods list -->
+    <div class="list-div" id="listDiv">
+        <table cellpadding="3" cellspacing="1">
+            <tbody>
+            <tr>
+                <th>第一个图片</th>
+                <th>资源名字</th>
+                <th>父分类</th>
+                <th>访问级别</th>
+                <th>创建时间</th>
+                <th>创建人</th>
+            </tr>
+            <tr></tr>
+            <?php
+				foreach($resources as $resource):
+				?>
+            <tr>
+                <td align="center">
+                    <?php if(isset($resource['img_first_url']) && $resource['img_first_url'] != ''){ ?>
+                    <span><img style="width: 40px; height: 40px" src="<?php echo $resource['img_first_url']; ?>"></span>
+                    <?php } else { ?>
+                    <span><h6>没有上传文件</h6></span>
+                    <?php }?>
+                </td>
+                <td align="center"><span><?php echo $resource['name']; ?></span></td>
+                <td align="center"><span>
+                    <?php $parent = $resTypeModel->findById($resource['parent_id']); echo $parent['name']; ?>
+                </span></td>
+                <td align="center"><span>
+                    <?php
+                     switch($resource['level']){
+                        case 1:echo '会员及以上';
+                            break;
+                        case 2:echo '超级会员及以上';
+                            break;
+                        case 3:echo '干事-校队及以上';
+                            break;
+                        case 4:echo '学长-学姐及以上';
+                            break;
+                        case 5:echo '老师及以上';
+                            break;
+                     }
+                    ?>
+                </span></td>
+                <td align="center"><span><?php echo date('Y-m-d H:i:s', $resource['createtime']); ?></span></td>
+                <td align="center"><span><?php echo $resource['creator']; ?></span></td>
+                <td align="center">
+                    <a href="index.php?p=admin&c=resource&a=editRes&id=<?php echo $resource['id']; ?>&parent_parent=<?php echo $parent_parent; ?>" title="查看"><img src="application/views/admin/images/icon_view.gif" width="16" height="16" border="0"></a>
+                    <a href="index.php?p=admin&c=resource&a=jumpUpdate&id=<?php echo $resource['id']; ?>&parent_parent=<?php echo $parent_parent; ?>" title="修改"><img src="application/views/admin/images/icon_edit.gif" width="16" height="16" border="0"></a>
+                    <?php $resource_id = $resource['id']; ?>
+                    <a href="javascript:;" onclick="if(confirm('您确实要删除这个分类吗？'))  location.href='index.php?p=admin&c=resource&a=deleteRes&id=<?php echo $resource_id; ?>&parent_parent=<?php echo $parent_parent; ?>'" title="回收站"><img src="application/views/admin/images/icon_trash.gif" width="16" height="16" border="0"></a>
+                </td>
+            </tr>
+            <?php
+				endforeach;
+				?>
+            </tbody>
+        </table>
+        <?php echo $pageinfo;?>
+        <!-- 分页 -->
+    </div>
+</form>
+
+<div id="footer">
+    版权所有 &copy; 2017 07 29 by dancheng
+</div>
+
+</body>
+</html>
