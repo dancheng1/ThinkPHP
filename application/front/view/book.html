@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+		<title>书籍</title>
+	
+			<!-- http://fontawesome.dashgame.com/ -->
+		<link rel="stylesheet" type="text/css" href="web/front/css/font-awesome.min.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="web/front/css/home.css"/>
+	
+		<meta name="Keywords" content="借阅，伴侣，书屋" />
+        <meta name="Description" content="这是一个用来做无微不至，借阅伴侣的网站" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">        
+     
+		<!-- Mobile Devices Support @begin -->
+            <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
+            <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+            <meta content="no-cache" http-equiv="pragma">
+            <meta content="0" http-equiv="expires">
+            <meta content="telephone=no, address=no" name="format-detection">
+            <meta name="apple-mobile-web-app-capable" content="yes" /> <!-- apple devices fullscreen -->
+            <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <!-- Mobile Devices Support @end -->
+		<script type="text/javascript" src="web/front/js/jQuery.js"></script>
+		<script type="text/javascript" src="web/front/js/swipe.js"></script>
+    </head>
+    <body onselectstart="return true;" ondragstart="return false;">
+		<section class="body">
+			<section class="link_tel_center">
+				&nbsp;<a style="color:white" href=""><strong><?php echo $class_name ?>类图书</strong></a>
+			</section>	
+			<section>
+				<ul class="list_ul2">
+					<?php
+					while($mess = mysql_fetch_assoc($books)){
+					?>
+					<li>
+						<a href="index1.php?p=front&c=Book&a=show&book_id=<?php echo $mess['id']; ?>">
+							<figure>
+								<div>
+									<img src="web/front/<?php echo $mess['image_b']; ?>" />
+								</div>
+								<figcaption>
+								 	<p>作者：<?php echo $mess['author']; ?></p>
+								 	<p>库存：<?php echo $mess['kc']; ?></p>
+								</figcaption>
+							</figure>
+                        </a>
+                    </li>
+
+                    <?php
+                    }
+                    ?>
+
+				</ul>	
+			</section>
+
+		
+		</section>
+
+		<nav class="top_bar footer_bar" style="-webkit-transform:translate3d(0,0,0)">
+				<ul class="top_menu">
+					<li>
+						<a href="index1.php?p=front&c=Index&a=show">
+							<span></span>
+						</a>
+					</li>
+					<li>
+						<a style="color:white;line-height:36px;" href="index1.php?p=front&c=Classify&a=show" class="fa fa-map-marker"><label > &nbsp;分类</label></a>
+					</li>
+					
+					<li>
+						<a style="color:white;line-height:36px;" href="index1.php?p=front&c=Order&a=show" class="fa fa-clock-o"><label> &nbsp; 借书栏</label></a>
+					</li>
+					 
+					<li>
+						<a style="color:white;line-height:36px;" href="index1.php?p=front&c=Horder&a=show" class="fa fa-comments-o"><label> &nbsp; 借书记录</label></a>
+					</li>
+				</ul>
+		
+		</nav>
+		<footer>
+			<br/>
+		</footer>
+	</body>
+</html>
+
+

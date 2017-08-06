@@ -1,0 +1,387 @@
+﻿<?php
+define("TOKEN", "dancheng");
+$wechatObj = new wechatCallbackapiTest();
+$wechatObj->valid();
+include 'web/wx/curl.php';
+
+class wechatCallbackapiTest{
+	public function valid(){
+        $echoStr = $_GET["echostr"];
+        //valid signature , option
+        if($this->checkSignature()){
+			$result = $this->responseMsg();
+        } else {
+			echo "das"; 
+		}
+    }
+
+	private function checkSignature(){
+        $signature = $_GET["signature"];
+        $timestamp = $_GET["timestamp"];
+        $nonce = $_GET["nonce"];	
+        		
+		$token = TOKEN;
+		$tmpArr = array($token, $timestamp, $nonce);
+		sort($tmpArr);
+		$tmpStr = implode( $tmpArr );
+		$tmpStr = sha1( $tmpStr );
+		
+		if( $tmpStr == $signature ){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+    public function responseMsg(){
+		$postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
+
+		if (!empty($postStr)){
+                
+              	$postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
+				
+				$RX_TYPE = trim($postObj -> MsgType);
+				switch($RX_TYPE){
+					case 'event':
+						$result = $this -> receiveEvent($postObj);
+						break;
+					case 'text':
+						$result = $this -> receiveText($postObj);
+						break;
+					case 'image':
+						$result = $this -> receiveImage($postObj);
+						break;
+					case 'voice':
+						$result = $this -> receiveVoice($postObj);
+						break;
+					case 'video':
+						$result = $this -> receiveVideo($postObj);
+						break;
+					case 'location':
+						$result = $this -> receiveLocation($postObj);
+						break;
+					case 'link':
+						$result = $this -> receiveLink($postObj);
+						break;
+					default:
+						$result = "unkone msg type" . $RX_TYPE;
+						break;
+				}
+				echo $result;
+        }else {
+        	echo "";
+        	exit;
+        }
+    }
+
+	//接收事件
+	private function receiveEvent($object){
+		$content = "";
+		switch($object -> Event){
+			case "subscribe":
+				$content = "欢迎关注借阅伴侣的测试账号！\n请设置通行证！\n\n注：通行证设置方式:\n“txz：通行证号”";
+				include 'framework/UserModel.php';
+				$user = getUserInfo($object -> FromUserName);
+				insert($user);
+				break;
+			case "unsubscribe":
+				$content = "取消关注";
+				break;
+			case "SCAN":
+				$content .= "\n扫描场景" . $object -> EventKey;
+				break;
+			case "CLICK":
+				switch($object -> EventKey){
+					case "company":
+						$content = array();
+						$content[] = array("Title" => "小规模低性能低流量网站设计原则！");
+						break;
+					default:
+						$content = "点击菜单" . $object -> EventKey;
+						break;
+				}
+				break;
+			case "LOCATION":
+				$content = "上传位置：纬度 " . $object -> Latitude . "； 精度" . $object -> Longitude;
+				break;
+			case "VIEW":
+				$content = "跳转链接 " . $object -> EventKey;
+				break;
+			case "MASSSENDJOBFINISH":
+				$content = "消息ID：" . $object -> MsgID . "，结果：" . $object -> Status;
+				break;
+			default:
+				$content = "receive a new event:" . $object -> Event;
+				break;
+		}
+		if(is_array($content)){
+			if(isset($content[0])){
+				$result = $this -> transmitNews($object, $content);
+			} else if(isset($content['MusicUrl'])){
+				$result = $this -> transmitMusic($object, $content);
+			}
+		} else {
+			$result = $this -> transmitText($object, $content);
+		}
+		return $result;
+	}
+
+	
+	//接收图片消息
+	private function receiveImage($object){
+		$content = array("MediaId"=>$object->MediaId);
+		$result = $this -> transmitImage($object, $content);
+		return $result;
+	}
+
+
+	//接收位置消息
+	private function receiveLocation($object){
+		$content = "你发送的是位置，纬度为：" . $object -> Location_X . "; 经度为：" . $object -> Location_Y;
+		$result = $this -> transmitText($object, $content);
+		return $result;
+	}
+
+
+	//接收语音消息
+	private function receiveVoice($object){
+		if(isset($object -> Recognition) && !empty($object -> Recognition)){
+			$text = $object -> Recognition;
+			$content = "你刚才说的是：" . $text;
+			$result = $this -> transmitText($object, $content);
+		} else {
+			$content = array("MediaId"=>$object -> MediaId);
+			$result = $this -> transmitVoice($object, $content);
+		}
+		return $result;
+	}
+
+
+	//接收视频消息
+	private function receiveVideo($object){
+		$content = array("MediaId"=>$object -> MediaId, "Title"=>"asd", "Description"=>"这是视频");
+		$result = $this -> transmitVideo($object, $content);
+		return $result;
+	}
+
+
+	//接收链接消息
+	private function receiveLink($object){
+		$content = "你发送的链接，标题是：" . $object -> Title . "； 内容是：" . $object -> Description . "； 消息链接：" . $object -> Url;
+		$result = $this -> transmitText($object, $content);
+		return $result;
+	}
+
+
+
+	//回复图片信息
+	private function transmitImage($object, $imageArray){
+		$itemTpl = "
+			<Image>
+				<MediaId><![CDATA[%s]]></MediaId>
+			</Image>
+		";
+	
+		$item_str = sprintf($itemTpl, $imageArray['MediaId']);
+
+		$xmlTpl = "
+			<xml>
+				<ToUserName><![CDATA[%s]]></ToUserName>
+				<FromUserName><![CDATA[%s]]></FromUserName>
+				<CreateTime>%s</CreateTime>
+				<MsgType><![CDATA[image]]></MsgType>
+				%s
+			</xml>
+		";
+
+		$result = sprintf($xmlTpl, $object -> FromUserName, $object -> ToUserName, time(), $item_str);
+		return $result;
+	}
+
+
+	//回复语音消息
+	private function transmitVoice($object, $voiceArray){
+		$itemTpl = "
+			<Voice>
+				<MediaId><![CDATA[%s]]></MediaId>
+			</Voice>
+		";
+
+		$item_str = sprintf($itemTpl, $voiceArray['MediaId']);
+
+		$xmlTpl = "
+			<xml>
+				<ToUserName><![CDATA[%s]]></ToUserName>
+				<FromUserName><![CDATA[%s]]></FromUserName>
+				<CreateTime>%s</CreateTime>
+				<MsgType><![CDATA[voice]]></MsgType>
+				%s
+			</xml>
+		";
+
+		$result = sprintf($xmlTpl, $object -> FromUserName, $object -> ToUserName, time(), $item_str);
+		return $result;
+	}
+
+
+	//回复视频消息
+	private function transmitVideo($object, $videoArray){
+		$itemTpl = "
+			<Video>
+				<MediaId><![CDATA[%s]]></MediaId>
+				<Title><![CDATA[%s]]></Title>
+				<Description><![CDATA[%s]]></Description>
+			</Video> 
+		"; 
+
+		$item_str = sprintf($itemTpl, $videoArray['MediaId'], $videoArray['Title'], $videoArray['Description']);
+
+		$xmlTpl = "
+			<xml>
+				<ToUserName><![CDATA[%s]]></ToUserName>
+				<FromUserName><![CDATA[%s]]></FromUserName>
+				<CreateTime>%s</CreateTime>
+				<MsgType><![CDATA[video]]></MsgType>
+				%s
+			</xml>
+		";
+
+		$result = sprintf($xmlTpl, $object -> FromUserName, $object -> ToUserName, time(), $item_str);
+		return $result;
+	}
+
+	private function receiveText($object){
+		//include 'sql.php';
+		//接收内容，放到变量中
+		$keyword = trim($object -> Content);
+		//$pdtianq = getcity($keyword);
+		if(strstr($keyword, "？") || strstr($keyword, "?") || strstr($keyword, "喂") || strstr($keyword, "在吗") || strstr($keyword, "help")){
+			$content = "!!!!";
+			$result = $this -> transmitText($object, $content);
+		} else if(isset($pdtianq)){
+			$tqtq = getWeatherInfo($pdtianq);
+			$content = array();
+			$content = array_merge($content, $tqtq);
+			//$result = $this -> transmitNews($object, $content);
+		} else if(substr($keyword, 0, 3) == 'txz'){
+			$str = substr($keyword, 4); 
+			include 'framework/UserModel.php';
+			if(exist($str)){
+				$content = "该通行令已存在，请重新输入通行令。\n\n注：格式为：“txz：通行证号”";
+			} else {
+				update($str, $object -> FromUserName);
+				$content = "通行令设置成功！\n完善个人信息，便可以自由借阅了！！！";
+			} 
+			$result = $this -> transmitText($object, $content);
+		} else if(strstr($keyword, "单图文")){
+			$content = array();
+			$content[] = array("Title"=>"dancheng", "Description"=>"1234", "PicUrl"=>"http://mmbiz.qpic.cn/mmbiz_jpg/EJJ2FncrOyFOrlzTP5Z2WmEoVxOicXIickbalryJLicdT5Q0I9x7ib6wYbFx7J85nDVuyMicjLmibIxQZz27927RlNMg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1", "Url"=>"https://mp.weixin.qq.com/s?__biz=MzU3MTAxNjg2Ng==&tempkey=YCPkaVusvCYnncGS1almYrM%2BDRCA15%2FxwTrhfeWOk7MmdUHZTTpcMReXdpAHd9NWPlgsCw3sLUkpvLIoCtTW4IW59R3FftlB3M%2FIXuFZRrOfGY6YoF4eS8pMeLdOfNZwqsYTX2ZDNtIpTgBx2FlOSg%3D%3D&chksm=7ce7d2c14b905bd7b8225b1d69148f7a973585d39c51642490f684453f068462696f6a01f814#rd");
+			//$result = $this -> transmitNews($object, $content);
+		} else if(strstr($keyword, "多图文") || strstr($keyword, "图文")){
+			$content = array();
+			$content[] = array("Title"=>"标题1", "Description"=>"1111", "PicUrl"=>"http://mmbiz.qpic.cn/mmbiz_jpg/EJJ2FncrOyFOrlzTP5Z2WmEoVxOicXIickA96SOVBXktePKGbIv3LbW5tV9NcAxicvs4icQoqK44mRT5iaoreRfXCMQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1", "Url"=>"https://mp.weixin.qq.com/s?__biz=MzU3MTAxNjg2Ng==&tempkey=YCPkaVusvCYnncGS1almYrM%2BDRCA15%2FxwTrhfeWOk7OIn637k1jhfJwTxL8ADVRCDnH4Q%2FhsxfzRPvqyxTE3ezAqcsGFotVh2If2FNJSSJ44FpaHnWGw2WfMEcYq1DX3ptUXwCku5usxm6MvS1BgSA%3D%3D&chksm=7ce7d2c04b905bd6628b98aae22e395b9a53d7d8808381840f0a606c0f98757726db82f219fa#rd");
+			$content[] = array("Title"=>"标题2", "Description"=>"2222", "PicUrl"=>"http://mmbiz.qpic.cn/mmbiz_jpg/EJJ2FncrOyFOrlzTP5Z2WmEoVxOicXIickRYYDUk61v4F3Ioeyicic1xNzkBW8JH9lC7829xtouKXic0oXwbkA5Sibyg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1", "Url"=>"https://mp.weixin.qq.com/s?__biz=MzU3MTAxNjg2Ng==&tempkey=YCPkaVusvCYnncGS1almYrM%2BDRCA15%2FxwTrhfeWOk7PQ4B2jbyMHbJARBeGLDRk0pOHzRkV%2FqOG3Mcg7GxK9OrkLPOM71NlmqeijSN%2BHVnI4FpaHnWGw2WfMEcYq1DX3nPA1RuUIUmG8DAQ5Qd%2F8EA%3D%3D&chksm=7ce7d2c64b905bd053e2f9f78154531e14be7372da21779c28e1c8aff4e8e71e9d4f9150d15a#rd");
+			$content[] = array("Title"=>"标题3", "Description"=>"3333", "PicUrl"=>"http://mmbiz.qpic.cn/mmbiz_jpg/EJJ2FncrOyFOrlzTP5Z2WmEoVxOicXIickbalryJLicdT5Q0I9x7ib6wYbFx7J85nDVuyMicjLmibIxQZz27927RlNMg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1", "Url"=>"https://mp.weixin.qq.com/s?__biz=MzU3MTAxNjg2Ng==&tempkey=YCPkaVusvCYnncGS1almYrM%2BDRCA15%2FxwTrhfeWOk7MmdUHZTTpcMReXdpAHd9NWPlgsCw3sLUkpvLIoCtTW4IW59R3FftlB3M%2FIXuFZRrOfGY6YoF4eS8pMeLdOfNZwkB1cZFge%2BoG3pbeHsKJRIA%3D%3D&chksm=7ce7d2c14b905bd7b8225b1d69148f7a973585d39c51642490f684453f068462696f6a01f814#rd");
+			$content[] = array("Title"=>"标题4", "Description"=>"4444", "PicUrl"=>"http://mmbiz.qpic.cn/mmbiz_jpg/EJJ2FncrOyFOrlzTP5Z2WmEoVxOicXIickA96SOVBXktePKGbIv3LbW5tV9NcAxicvs4icQoqK44mRT5iaoreRfXCMQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1", "Url"=>"https://mp.weixin.qq.com/s?__biz=MzU3MTAxNjg2Ng==&tempkey=YCPkaVusvCYnncGS1almYrM%2BDRCA15%2FxwTrhfeWOk7OIn637k1jhfJwTxL8ADVRCDnH4Q%2FhsxfzRPvqyxTE3ezAqcsGFotVh2If2FNJSSJ6fGY6YoF4eS8pMeLdOfNZwI7%2BX6980IHoIavmcJIm9Pw%3D%3D&chksm=7ce7d2c04b905bd6628b98aae22e395b9a53d7d8808381840f0a606c0f98757726db82f219fa#rd");
+			//$result = $this -> transmitNews($object, $content);
+		} else if(strstr($keyword, "音乐")){
+			$music = array("Title"=>"歌曲", "Description"=>"我曹", "MusicUrl"=>"http://skydancheng.duapp.com/app/lll.mp3", "HQMusicUrl"=>"http://skydancheng.duapp.com/app/lll.mp3");
+			//$result = $this-> transmitMusic($object, $music);
+		} else {
+			$content = date("Y-m-d H:i:s") . "---->dancheng技术支持!" . $this->openid;
+			// include "ufun.inc.php";
+			// $user = getUserInfo($object -> FromUserName); 
+			// insertuser($user);
+			// insertmessage($object -> FromUserName, $keyword, 0, 'text');
+
+			//$result = $this -> transmitText($object, $content);
+		}
+
+		if(is_array($content)){
+			if(isset($content[0]['PicUrl'])){
+				$result = $this -> transmitNews($object, $content);
+			} else if(isset($content['MusicUrl'])){
+				$result = $this -> transmitMusic($object, $content);
+			}
+		} else {
+			
+                                   
+			$result = $this -> transmitText($object, $content);
+		}	
+		return $result;
+	}
+		
+
+	//回复文本音乐消息
+	function transmitMusic($object, $music){
+		$xmlTpl = "
+			<xml>
+				<ToUserName><![CDATA[%s]]></ToUserName>
+				<FromUserName><![CDATA[%s]]></FromUserName>
+				<CreateTime>%s</CreateTime>
+				<MsgType><![CDATA[music]]></MsgType>
+				<Music>
+					<Title><![CDATA[%s]]></Title>
+					<Description><![CDATA[%s]]></Description>
+					<MusicUrl><![CDATA[%s]]></MusicUrl>
+					<HQMusicUrl><![CDATA[$s]]></HQMusicUrl>
+				</Music>
+			</xml>
+		";
+
+		
+		return sprintf($xmlTpl, $object->FromUserName, $object->ToUserName, time(), $music['Title'], $music['Description'], $music['MusicUrl'], $music['HQMusicUrl']);
+	}
+
+
+	/*
+	回复文本信息
+	*/
+	function transmitText($object, $content){
+		$xmlTpl = "
+			<xml>
+				<ToUserName><![CDATA[%s]]></ToUserName>
+				<FromUserName><![CDATA[%s]]></FromUserName>
+				<CreateTime>%s</CreateTime>
+				<MsgType><![CDATA[text]]></MsgType>
+				<Content><![CDATA[%s]]></Content>
+			</xml>
+		";
+		$result = sprintf($xmlTpl, $object->FromUserName, $object->ToUserName, time(), $content);
+		return $result;
+	}
+	/*
+	回复单图文或多图文
+	*/
+	function transmitNews($object, $newsArray){
+		$itemTpl = "
+			<item>
+				<Title><![CDATA[%s]]></Title> 
+				<Description><![CDATA[%s]]></Description>
+				<PicUrl><![CDATA[%s]]></PicUrl>
+				<Url><![CDATA[%s]]></Url>
+			</item>
+		";
+		$item_str = "";
+		foreach($newsArray as $item){
+			$item_str .= sprintf($itemTpl, $item['Title'], $item['Description'], $item['PicUrl'], $item['Url']);
+		}
+		
+		$xmlTpl = "
+			<xml>
+				<ToUserName><![CDATA[%s]]></ToUserName>
+				<FromUserName><![CDATA[%s]]></FromUserName>
+				<CreateTime>%s</CreateTime>
+				<MsgType><![CDATA[news]]></MsgType>
+				<ArticleCount>%s</ArticleCount>
+				<Articles>
+					%s
+				</Articles>
+			</xml>
+		";
+		
+		return sprintf($xmlTpl, $object->FromUserName, $object->ToUserName, time(), count($newsArray), $item_str);
+	}
+ 	
+}
+?>

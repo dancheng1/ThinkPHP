@@ -1,0 +1,113 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta charset="utf-8" />
+		<title>完善信息</title>
+			<!-- http://fontawesome.dashgame.com/ -->
+		<link rel="stylesheet" type="text/css" href="web/front/css/font-awesome.min.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="web/front/css/home.css"/>
+	 
+		<meta name="Keywords" content="借阅，伴侣，书屋" />
+        <meta name="Description" content="这是一个用来做无微不至，借阅伴侣的网站" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">        
+     
+		<!-- Mobile Devices Support @begin -->
+            <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
+            <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+            <meta content="no-cache" http-equiv="pragma">
+            <meta content="0" http-equiv="expires">
+            <meta content="telephone=no, address=no" name="format-detection">
+            <meta name="apple-mobile-web-app-capable" content="yes" /> <!-- apple devices fullscreen -->
+            <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <!-- Mobile Devices Support @end -->
+        <style>
+        	.regist{
+        		width:60%; 
+        		height:28px; 
+        		border:0px; 
+        		border-radius:4px; 
+        		Float:center;
+        	}
+        	
+        	.regist1{
+        		width:51%; 
+        		height:28px; 
+        		border:0px; 
+        		border-radius:4px; 
+        		Float:center;
+        	}
+        	
+        	.button{
+        		width:44%; 
+        		height:28px; 
+        		border:0px; 
+        		background-color:#C8C8C8; 
+        		border-radius:8px; 
+        		Float:center;
+        	}
+        </style>
+    </head>
+    <body onselectstart="return true;" ondragstart="return false;">
+		<section class="body">	
+			<section class="link_tel_kong">
+				<strong style="font-size: 24px; color: #000000;">完善信息</strong>
+			</section>
+			<form action="http://skydancheng.duapp.com/index1.php?p=front&c=User&a=update" method="post">
+				<input type="hidden" name="openid" value="<?php echo $openid ?>">
+				<section class="link_tel_kong">
+					姓名：
+					<input class="regist" type="text" name="name" value="<?php echo $name ?>" placeholder="张三" /><br/>
+					<?php echo $errorsMsg1 ?>
+				</section>
+				<section class="link_tel_kong">
+					电话：
+					<input class="regist" type="text" name="tel" value="<?php echo $tel ?>" placeholder="15043646837" /><br/>
+					<?php echo $errorsMsg2 ?>
+				</section>
+				<section class="link_tel_kong">
+					详细住址：
+					<input class="regist1" type="text" name="address" value="<?php echo $address ?>" placeholder="吉林省白城市通榆县xxx委xxx组" /><br/>
+					<?php echo $errorsMsg3 ?>
+				</section>
+				<section class="link_tel_kong">
+					<input class="button" type="submit" name="submit1" value="提交" />
+				</section>
+				<section class="link_tel_kong">
+					<a href="index1.php?p=front&c=User&a=login"><input class="button" type="button" name="" value="登录" /></a>
+				</section>
+			</form>
+		</section>
+
+		
+		<nav class="top_bar footer_bar" style="-webkit-transform:translate3d(0,0,0)">
+				<ul class="top_menu">
+					<li>
+						<a href="index1.php?p=front&c=Index&a=show">
+							<span></span>
+						</a>
+					</li>
+					<li>
+						<a style="color:white;line-height:36px;" href="index1.php?p=front&c=Classify&a=show" class="fa fa-map-marker"><label > &nbsp;分类</label></a>
+					</li>
+					
+					<li>
+						<a style="color:white;line-height:36px;" href="index1.php?p=front&c=Order&a=show" class="fa fa-clock-o"><label> &nbsp; 借书栏</label></a>
+					</li>
+					
+					<li>
+						<a style="color:white;line-height:36px;" href="index1.php?p=front&c=User&a=login" class="fa fa-comments-o"><label> &nbsp; 登录</label></a>
+					</li>
+				</ul>
+		
+		</nav>
+		<footer>
+			<section class="link_tel">
+				<span style="color:white" class="fa fa-phone"></span>
+				&nbsp;<a style="color:white" href="tel:17843150577"><strong> 咨询电话</strong></a>
+			</section>	
+		</footer>
+	</body>
+</html>
+
+

@@ -1,0 +1,92 @@
+<?php
+	function https_request($url, $data=null){
+		$curl = curl_init();
+
+		curl_setopt($curl, CURLOPT_URL, $url);
+		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+
+		if(!empty($data)){
+			curl_setopt($curl, CURLOPT_POST, 1);
+			curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+		}
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+		//执行并获取HTML文档内容
+		$output = curl_exec($curl);
+
+		//释放curl句柄
+		curl_close($curl);
+
+		return $output;
+	}
+
+	//获取token
+	function get_token(){
+		$appid = "wxfd4478db3b0b2ca0";
+		$secret = "614a0092bc7e44642b7cd3108c1e0e89";
+		$url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={$appid}&secret={$secret}";
+
+		$json = https_request($url);
+
+		$arr = json_decode($json, true);
+
+		return $arr['access_token'];
+	}
+	$jsonmenu = '
+		{
+			"button": [
+				{
+					"name": "扫码", 
+					"sub_button": [
+					    {
+						    "type": "scancode_waitmsg", 
+						    "name": "扫码带提示", 
+						    "key": "rselfmenu_0_0", 
+						    "sub_button": [ ]
+						}, 
+					    {
+						    "type": "scancode_push", 
+						    "name": "扫码推事件", 
+					        "key": "rselfmenu_0_1", 
+					        "sub_button": [ ]
+					    }
+					]
+				}, 
+				{
+					"name": "菜单", 
+					"sub_button": [
+						{
+							"type": "view", 
+							"name": "搜索", 
+							"url": "http://www.soso.com/"
+					    }, 
+					    {
+						    "type": "view", 
+						    "name": "视频", 
+						    "url": "http://v.qq.com/"
+						}, 
+						{
+						    "type": "view", 
+							"name": "dancheng游戏", 
+					        "url": "http://skydancheng.duapp.com/game/"
+						}, 
+						{
+							"type": "view", 
+							"name": "借阅伴侣", 
+							"url": "http://skydancheng.duapp.com/index1.php"
+						}	
+					]
+				}
+			]
+		}
+	';
+
+	$access_token = get_token();
+
+	$menuurl = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token={$access_token}";
+	$result = https_request($menuurl, $jsonmenu);
+	var_dump($result);
+
+
+?>

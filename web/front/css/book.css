@@ -1,0 +1,297 @@
+*{padding:0; margin:0;}
+
+			html, body{ height:100%;background-color:#e1e0de; text-align:center;}
+
+			a {
+				text-decoration: none;
+				-webkit-tap-highlight-color: rgba(0, 0, 0, 0.35);
+				font-size:14px;
+			}
+			img {
+				vertical-align: middle;
+			}
+			img:not([src*="/"]){display:none;}
+
+			li{ list-style:none;}
+
+			.body{
+				max-width:640px;
+				margin:auto;
+				min-height:100%;
+				background-color:green; 
+				position:relative;
+			}
+
+
+			.box_swipe{
+				height:200px;
+				overflow:hidden;
+				position:relative;
+			}
+
+			.box_swipe>ol{
+				height:20px;
+				position: relative;
+				z-index:10;
+				margin-top:-25px;
+				text-align:right;
+				padding-right:20px;
+				background-color:rgba(0,0,0,0.5);
+			}
+
+			.box_swipe>ol>li{
+				display:inline-block;
+				margin:5px;
+				width:10px;
+				height:10px;
+				background-color:#757575;
+				border-radius: 10px;
+			}
+			.box_swipe>ol>li.on{
+				background-color:#ffffff;
+			}
+
+			.link_tel_form{
+				display:block!important;
+				line-height:28px!important;
+				margin:10px 10px 0 10px;
+				margin-top:10px!important;
+				color:#fff!important;
+				text-align:left;
+				word-spacing:nowrap; 
+				overflow:hidden;
+				font-size:18px;
+				position:relative;
+			}
+
+			.link_tel_left{
+				display:block!important;
+				line-height:28px!important;
+				margin:10px 10px 0 10px;
+				margin-top:10px!important;
+				background:#ea5946;
+				color:#fff!important;
+				text-align:left;
+				text-indent:5px;
+			/*	border-radius:5px; */
+				word-spacing:nowrap; 
+				overflow:hidden;
+				font-size:18px;
+				position:relative;
+			}
+
+			.link_tel{
+				display:block!important;
+				line-height:28px!important;
+				margin:10px 10px 0 10px;
+				margin-top:10px!important;
+				background:#ea5946;
+				color:#fff!important;
+				text-align:center;
+				border-radius:5px;
+				word-spacing:nowrap;
+				overflow:hidden;
+				font-size:18px;
+				position:relative;
+			}
+			 
+			
+			.link_tel:before{
+				font-size:20px;
+				margin-left:0;
+				position:absolute;
+				left:10px;
+				top:2px;
+				font-size:25px;
+			}
+
+
+			.list_ul{
+				margin:10px 5px;
+				overflow:hidden;
+			}
+
+			.list_ul a{
+				color:#666;
+				display:block;
+				background:#fff;
+				border-radius:8px;
+				-webkit-box-shadow:1px 2px 1px rgba(0,0,0,0.3);
+				padding:10px 0;
+				margin:5px;
+				color:#666;
+			}
+
+			.list_ul figcaption {
+				font-size:10px;
+			}
+
+			.list_ul figcaption p{
+				font-size:6px;
+				color:#aaa;
+			}
+
+			.list_ul figure div{
+				display:inline-block;
+				margin:5px auto;
+				width:50px;
+				height:50px;
+				border-radius:50px;
+				border:2px solid #fff;
+				overflow:hidden;
+				-webkit-box-shadow:0 0 3px #ccc;
+				box-shadow:0 0 3px #ccc;
+			}
+
+			.list_ul li{
+				display:inline-block;
+				width:25%;
+				float:left;
+				text-align:center;
+				-webkit-box-sizing:border-box;
+			}
+
+			.list_ul li img{
+				width:100%;
+				min-height:100%;
+			}
+
+
+			.top_bar{
+				max-width:640px;
+				position:fixed;
+				width:100%;
+				left:0;
+				right:0;
+				top:0;
+				z-index:100;
+				margin:auto;
+			}
+			.top_bar+*{
+				padding-top:35px;
+			}
+			.top_menu{
+				display:-webkit-box;
+				background: -webkit-gradient(linear, 0 0, 0 100%, from(#212C30), to(#121619));
+			}
+
+			.top_bar .top_menu>li{
+				-webkit-box-flex:1;
+				height:35px;
+				background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255,255,255,0.1)),color-stop(50%,rgba(255,255,255,0.8)), to(rgba(255,255,255,0.1)));
+				-webkit-background-size:1px 80%;
+				background-size:1px 80%;
+				background-position: right center;
+				background-repeat: no-repeat;
+				position:relative;
+				text-align:center;
+			}
+
+			.footer_bar{
+				top:inherit;
+				bottom:0;
+			}
+
+
+			.top_bar.footer_bar~*:last-of-type{
+				padding-top:0;
+				padding-bottom:45px;
+			}
+			.top_bar.footer_bar .menu_font{
+				top:inherit!important;
+				bottom:40px;
+			}
+
+			.top_bar.footer_bar .menu_font:after{
+				top:inherit!important;
+				bottom:-6px;
+				border-color: rgba(0, 0, 0, 0.8) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+				border-width:6px 6px 0;
+			}
+
+			.top_bar li>label{
+				line-height: 35px;
+				color:#fff;
+				text-indent:5px;
+				float:right;
+				margin-right:10px;
+			}
+
+			.top_bar li:first-of-type{background:none;}
+			.top_bar li:first-of-type span{
+				background:url(http://skydancheng.duapp.com/html/images/index.png) no-repeat center;
+				background-size:100% auto;
+				width:45px;
+				height:45px;
+				margin-top:-15px;
+			}
+
+
+			.homemenu_text{
+				color:#fff;
+				padding-left:3px;
+			}
+
+
+
+			.top_menu{
+				display:-webkit-box;
+				background: -webkit-gradient(linear, 0 0, 0 100%, from(#212C30), to(#121619));
+			}
+
+			.top_bar .top_menu>li{
+				-webkit-box-flex:1;
+				height:35px;
+				background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255,255,255,0.1)),color-stop(50%,rgba(255,255,255,0.8)), to(rgba(255,255,255,0.1)));
+				-webkit-background-size:1px 80%;
+				background-size:1px 80%;
+				background-position: right center;
+				background-repeat: no-repeat;
+				position:relative;
+				text-align:center;
+			}
+			.top_menu>li:last-of-type{background:none;}
+			.top_menu>li span{
+				display:inline-block;
+				height:100%;
+				width:25px;
+				margin:auto;
+				font-size:24px;
+				color:#fff;
+				line-height:35px;
+				/*background: url(../../img/weimob-icons.png) no-repeat 0 5px;*/
+			}
+			.top_menu>li span.i_back{
+				background-position:0 5px;
+			}
+			.top_menu>li span.i_home{
+				background-position:-33px 5px;
+			}
+			.top_menu>li span.i_tel{
+				background-position:-65px 5px;
+			}
+			.top_menu>li span.i_menu{
+				background-position:-95px 5px;
+			}
+
+
+			.top_menu>li:last-of-type{background:none;}
+			.top_menu>li>span{
+				display:inline-block;
+				height:100%;
+				width:25px;
+				margin:auto;
+				background: url(../images/weimob-icons.png) no-repeat 0 5px;
+			}
+			.top_menu>li>span.i_back{
+				background-position:0 5px;
+			}
+			.top_menu>li>span.i_home{
+				background-position:-33px 5px;
+			}
+			.top_menu>li>span.i_tel{
+				background-position:-65px 5px;
+			}
+			.top_menu>li>span.i_menu{
+				background-position:-97px 5px;
+			}
