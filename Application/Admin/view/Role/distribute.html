@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form name="form1" method="post" action="__SELF__">
+        <dl>
+            <foreach name="info1" item="vo1">
+                <dt>
+                    <if condition="in_array($vo1['auth_id'], $role_auth_id_array)">
+                        <input type="checkbox" name="auth[]" value="{$vo1.auth_id}" checked="checked" />
+                    <else/>
+                        <input type="checkbox" name="auth[]" value="{$vo1.auth_id}" />
+                    </if>
+                    {$vo1.auth_name}
+                </dt>
+                <foreach name="info2" item="vo2">
+                    <if condition="$vo2['auth_pid'] eq $vo1['auth_id']">
+                        <dd>
+                            <if condition="in_array($vo2['auth_id'], $role_auth_id_array)">
+                                <input type="checkbox" name="auth[]" value="{$vo2.auth_id}" checked="checked" />
+                            <else/>
+                                <input type="checkbox" name="auth[]" value="{$vo2.auth_id}" />
+                            </if>
+                            {$vo2.auth_name}
+                        </dd>
+                    </if>
+                </foreach>
+            </foreach>
+        </dl>
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>

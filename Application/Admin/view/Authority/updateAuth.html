@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<form name="form1" method="post" action="__SELF__">
+    <table width="500" border="1" align="center">
+        <tr>
+            <th colspan="2">修改权限</th>
+        </tr>
+        <tr>
+            <td>权限名称：</td>
+            <td><input name="auth_name" type="text" id="auth_name" value="{$current_auth.auth_name}"></td>
+        </tr>
+        <tr>
+            <td>选中父级：</td>
+            <td><select name="auth_pid" id="auth_pid">
+                <option value="0">---请选择父级---</option>
+                <option></option>
+                <volist name='parent_auth' id='vo'>
+                    <if condition="$vo['auth_id'] eq $current_auth['auth_pid']">
+                        <option value="{$vo.auth_id}" selected="selected">{$vo.auth_name}</option>
+                        <else/>
+                        <option value="{$vo.auth_id}">{$vo.auth_name}</option>
+                    </if>
+                </volist>
+            </select></td>
+        </tr>
+        <tr>
+            <td>控制器名称：</td>
+            <td><input name="auth_c" type="text" id="auth_c" value="{$current_auth.auth_c}"></td>
+        </tr>
+        <tr>
+            <td>方法名称：</td>
+            <td><input name="auth_a" type="text" id="auth_a" value="{$current_auth.auth_a}"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" name="button" id="button" value="提交"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
